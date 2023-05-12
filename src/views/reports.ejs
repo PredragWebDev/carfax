@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+    
+    <!-- Add this line to include the Mui theme -->
+    <script src="https://unpkg.com/@material-ui/core@4.12.3/umd/material-ui.production.min.js"></script>
+  
+    <title>My Reports</title>
+  </head>
+  <body>
+    <%- include('partials/header', {page: "reports"}) %>
+
+    <div class="container">
+      <div class="my-3 p-3 bg-white rounded box-shadow">
+        <div id="faxOrcheck" class="mb-3 border-bottom border-dark">
+          
+          <a href="/reports" class="btn btn-primary mb-3 mr-3 text-white">CarFax</a>
+          <a href="/autocheckReports" class="btn btn-secondary mb-3 text-white">Auto Check</a>
+          <!-- <button onclick="" class="btn btn-primary mb-3 mr-3">CarFax</button> -->
+          <!-- <button class=" btn btn-secondary mb-3">Auto Check</button> -->
+        </div>
+        <%- include('partials/messages') %>
+        <table id="reportsTable" class="table table-bordered" style="width:100%">
+          <thead>
+            <tr>
+                <th>VIN</th>
+                <th>Name</th>
+                <th>Created At</th>
+            </tr>
+            <tbody></tbody>
+          </thead>
+      </table>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+      integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+      crossorigin="anonymous"
+  ></script>
+
+  <script>
+    let reports = <% if(typeof(reports) !== 'undefined' && reports.length > 0){ %> <%- JSON.stringify(reports) %>; <% } else {%>[];<% } %>
+
+    $(document).ready(function() {
+        var table = $('#reportsTable').DataTable({
+            data: reports,
+            order: [[ 2, "desc" ]],
+            columns : [
+                {
+                    data : 'VIN',
+                    render : function(data, type, row, meta) {
+
+                        if (type === 'display') {
+                          if (data) {
+                            data = `<a href="/report/${row._id.toUpperCase()}" target='_blank'>${data}</a>`;
+                          }
+                          else {
+                            data = 'N/A'
+                          }
+                        }
+            
+                        return data;
+                    }
+                },
+                {
+                  data: 'yearMakeModel',
+                  render : function(data, type, row, meta) {
+                        if (type === 'display' && !data) {
+                            data = 'N/A'
+                        }
+            
+                        return data;
+                    }
+                },
+                {
+                    data: 'createdAt',
+                    type: 'date',
+                    render : function(data, type, row, meta) {
+                      if (type === 'display') {
+                          if (data) {
+                            data = moment(data).fromNow();
+                          }
+                          else {
+                            data = 'N/A'
+                          }
+                        }
+            
+                        return data;
+                    }
+                },
+            ]
+        });
+    });
+    </script>
+
+  </body>
+</html>

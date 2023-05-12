@@ -1,0 +1,185 @@
+const test = require("ava");
+const request = require("supertest");
+const User = require("../server/models/User");
+
+let app;
+
+test.before((t) => {
+  app = require("../bin/www");
+  t.context.agent = request.agent(app);
+  t.context.user = {
+    email: "test@gmail.com",
+    password: "ASecurePassword",
+  };
+});
+
+test.serial("redirect from homepage/check page to login page", async (t) => {
+  const response = await t.context.agent.get("/");
+
+  t.is(response.statusCode, 302);
+  t.is(response.headers.location, "/users/login");
+});
+
+test.serial("login page renders", async (t) => {
+  const response = await t.context.agent.get("/users/login");
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("reset password page renders", async (t) => {
+  const response = await t.context.agent.get("/users/reset_password");
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("reset password with token page renders", async (t) => {
+  const response = await t.context.agent.get("/users/reset_password/faketoken");
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("register page renders", async (t) => {
+  const response = await t.context.agent.get("/users/register");
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("register account empty password2", async (t) => {
+  const response = await t.context.agent.post("/users/register").send({
+    email: t.context.user.email,
+    password: t.context.user.password,
+    password2: "",
+  });
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("register account", async (t) => {
+  const response = await t.context.agent.post("/users/register").send({
+    email: t.context.user.email,
+    password: t.context.user.password,
+    password2: t.context.user.password,
+  });
+
+  t.is(response.statusCode, 302);
+  t.is(response.headers.location, "/users/login");
+});
+
+test.serial("login account fake password", async (t) => {
+  const response = await t.context.agent.post("/users/login").send({
+    email: t.context.user.email,
+    password: `${t.context.user.password}69`,
+  });
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("login account empty password", async (t) => {
+  const response = await t.context.agent.post("/users/login").send({
+    email: t.context.user.email,
+    password: "",
+  });
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("login account fake email", async (t) => {
+  const response = await t.context.agent.post("/users/login").send({
+    email: "fakeemail@gmail.com",
+    password: "test12345",
+  });
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("login account with remember_me", async (t) => {
+  const response = await t.context.agent.post("/users/login").send({
+    email: t.context.user.email,
+    password: t.context.user.password,
+    remember_me: "on",
+  });
+
+  t.is(response.statusCode, 302);
+  t.is(response.headers.location, "/");
+
+  // Reset agent to login again in next test
+  t.context.agent = request.agent(app);
+});
+
+test.serial("login account", async (t) => {
+  const response = await t.context.agent.post("/users/login").send({
+    email: t.context.user.email,
+    password: t.context.user.password,
+  });
+
+  t.is(response.statusCode, 302);
+  t.is(response.headers.location, "/");
+});
+
+test.serial("home page renders", async (t) => {
+  const response = await t.context.agent.get("/");
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("profile page renders", async (t) => {
+  const response = await t.context.agent.get("/users/profile");
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("change password page renders", async (t) => {
+  const response = await t.context.agent.get("/users/change_password");
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("update profile", async (t) => {
+  const response = await t.context.agent.post("/users/profile").send({
+    email: t.context.user.email,
+  });
+
+  t.is(response.statusCode, 302);
+  t.is(response.headers.location, "/users/profile");
+});
+
+test.serial("update profile empty email", async (t) => {
+  const response = await t.context.agent.post("/users/profile").send({
+    email: "",
+  });
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("change password empty password2", async (t) => {
+  const response = await t.context.agent.post("/users/change_password").send({
+    password: `${t.context.user.password}69`,
+    password2: "",
+  });
+
+  t.is(response.statusCode, 200);
+});
+
+test.serial("change password", async (t) => {
+  const response = await t.context.agent.post("/users/change_password").send({
+    password: `${t.context.user.password}69`,
+    password2: `${t.context.user.password}69`,
+  });
+
+  t.is(response.statusCode, 302);
+  t.is(response.headers.location, "/users/login");
+});
+
+test.serial("logout works", async (t) => {
+  const response = await t.context.agent.get("/users/logout");
+
+  t.is(response.statusCode, 302);
+  t.is(response.headers.location, "/users/login");
+});
+
+test.after("teardown", async (t) => {
+  app.close();
+  //mongoose.connection.close();
+
+  await User.findOneAndDelete({ email: t.context.user.email });
+});

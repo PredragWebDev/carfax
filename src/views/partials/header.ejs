@@ -1,0 +1,72 @@
+<nav
+  class="navbar navbar-expand-md navbar-dark fixed-top bg-dark page-header"
+  style="background-color: #1a1a24 !important"
+>
+  <a class="navbar-brand" href="/">BuyCARFAX</a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarCollapse"
+    aria-controls="navbarCollapse"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <% if(page === 'check') { %>active<% } %>">
+        <a class="nav-link" href="/"
+          >Carfax <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item <% if(page === 'autocheck') { %>active<% } %>">
+        <a class="nav-link" href="/autocheck"
+          >AutoCheck</a>
+      </li>
+      <li class="nav-item <% if(page === 'reports') { %>active<% } %>">
+        <a class="nav-link" href="/reports">My Reports</a>
+      </li>
+      <li class="nav-item <% if(page === 'buycredits') { %>active<% } %>">
+        <a class="nav-link" href="/buycredits">Buy Credits</a>
+      </li>
+
+      <% if(user) { %> <% if(user.role === "ADMIN") { %>
+      <li class="nav-item <% if(page === 'users') { %>active<% } %>">
+        <a class="nav-link" href="/admin/users">Manage Users</a>
+      </li>
+      <li class="nav-item <% if(page === 'logs') { %>active<% } %>">
+        <a class="nav-link" href="/admin/logs">Logs</a>
+      </li>
+      <% } %> <% } else { %>
+      <li class="nav-item <% if(page === 'login') { %>active<% } %>">
+        <a class="nav-link" href="/users/login">Login</a>
+      </li>
+      <li class="nav-item <% if(page === 'register') { %>active<% } %>">
+        <a class="nav-link" href="/users/register">Register</a>
+      </li>
+      <% } %>
+    </ul>
+    <% if (user) { %>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+          ><%= user.email %></a
+        >
+        <div class="dropdown-menu dropdown-menu-right">
+          <a
+            class="dropdown-item <% if(page === 'profile') { %>active<% } %>"
+            href="/users/profile"
+            >Profile</a
+          >
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/users/logout">Logout</a>
+        </div>
+      </li>
+    </ul>
+    <% } %>
+  </div>
+</nav>

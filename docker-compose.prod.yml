@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  carfax-backend:
+    container_name: carfax-backend
+    image: nikita/carfax-backend:latest
+    restart: always
+    env_file:
+      - prod.env
+    depends_on:
+      - mongo
+
+  mongo:
+    container_name: mongodb
+    hostname: mongo
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      #- mongodb-data:/data/db
+      - /home/ubuntu/mongodb/:/data/db
+      - ./mongo.conf:/etc/mongod.conf
+    env_file:
+      - mongo.env
+
+  nginx:
+    container_name: nginx
+    image: nginx:stable-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/prod.conf:/etc/nginx/conf.d/default.conf
+
+  mgob:
+    container_name: mgob
+    image: nikitalol/mgob:edge
+    ports:
+      - 8090:8090
+    volumes:
+      - ./mgob/config:/config
+      - ./mgob/storage:/storage
+      - ./mgob/tmp:/tmp
+      - ./mgob/data:/data
+    env_file:
+      - backup.env
+#volumes:
+#  mongodb-data:
