@@ -1,0 +1,174 @@
+/********* Ajax Login **********/
+div.ajaxLoginPopup {
+	z-index: 9999;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left: -222px;
+	margin-top: -137px;
+	font: 18pt Arial;
+	color: #ffffff;
+	width: 455px;
+	min-height: 275px;
+	background: #30b5ea; /* Old browsers */
+	background: -moz-linear-gradient(top, #30b5ea 0%, #0d5d7e 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #30b5ea),
+		color-stop(100%, #0d5d7e) ); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #30b5ea 0%, #0d5d7e 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #30b5ea 0%, #0d5d7e 100%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #30b5ea 0%, #0d5d7e 100%);
+	/* IE10+ */
+	background: linear-gradient(top, #30b5ea 0%, #0d5d7e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(  startColorstr='#30b5ea',
+		endColorstr='#0d5d7e', GradientType=0 ); /* IE6-9 */
+}
+
+.ajaxLoginPopup div {
+	margin: 20px auto;
+	width: 418px;
+}
+
+.ajaxLoginPopup label {
+	font-weight: 600;
+	font: 18pt Arial;
+	color: #ffffff;
+}
+
+.ajaxLoginPopup input[type="submit"] {
+	width: 70px;
+	height: 35px;
+	margin: 20px 2px 20px 0;
+	float: right;
+	font: 12pt Arial;
+	font-weight: 600;
+	color: #444444;
+	background: #ffe779; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffe779 0%, #f7c90f 100%);
+	/* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffe779),
+		color-stop(100%, #f7c90f) ); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffe779 0%, #f7c90f 100%);
+	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffe779 0%, #f7c90f 100%);
+	/* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffe779 0%, #f7c90f 100%);
+	/* IE10+ */
+	background: linear-gradient(top, #ffe779 0%, #f7c90f 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(  startColorstr='#ffe779',
+		endColorstr='#f7c90f', GradientType=0 ); /* IE6-9 */
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-ms-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.ajaxLoginPopup input[type="text"],.ajaxLoginPopup input[type="password"]
+	{
+	margin-top: 20px;
+	-webkit-box-shadow: inset px px 1px 1px rgba(227, 227, 227, 11), 1px 1px
+		1px 1px #B5B5B5;
+	-moz-box-shadow: inset px px 1px 1px rgba(227, 227, 227, 11), 1px 1px
+		1px 1px #B5B5B5;
+	-o-box-shadow: inset px px 1px 1px rgba(227, 227, 227, 11), 1px 1px 1px
+		1px #B5B5B5;
+	-ms-box-shadow: inset px px 1px 1px rgba(227, 227, 227, 11), 1px 1px 1px
+		1px #B5B5B5;
+	box-shadow: inset px px 1px 1px rgba(227, 227, 227, 11), 1px 1px 1px 1px
+		#B5B5B5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-ms-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	color: #666666;
+	font: 18pt Arial;
+}
+
+.ajaxLoginPopup input[type="text"] {
+	background-color: #fbfbe0;
+	margin-left: 10px;
+	padding-left: 3px;
+}
+
+.ajaxLoginPopup input[type="password"] {
+	background-color: #ffffff;
+	margin-left: 14px;
+	padding-left: 3px;
+}
+
+.ajaxLoginPopup h1 {
+	font-size: 36pt;
+}
+
+.ajaxLoginPopup .errorMessage {
+	margin: 0;
+	font-size: 13pt;
+}
+
+.ajaxLoginPopup .errorMessage img {
+	margin-right: 5px;
+}
+
+#ajaxLoginMessage {
+	font-size: 21px;
+}
+
+#ajaxLoginFooter {
+	font-size: 15px;
+	font-style: italic;
+	padding-top: 21px;
+	color: #000000;
+	width:80%;
+}
+
+#ajaxModalFade {
+	display: none;
+	background: #fff;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9998;
+}
+
+#ajaxLoginSpinner {
+	display: none; 
+	position : fixed; 
+	top : 50%;
+	right: 50%;
+	z-index: 9999;
+}
+
+#login-error-message {
+	display: none;
+	padding: 20px;
+	background: #FFDEDE;
+	color: black;
+	border: 1px solid red;
+	border-radius: 3px;
+	font-weight: normal;
+	width:85%;
+}
+
+#login-error-message-text {
+	text-align: center;
+	font-size: 14px;
+	color: black;
+}
+
+#ajaxLoginCloseButton {
+	cursor: pointer;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+}
+
+#ajax-login {
+	cursor: pointer;
+}

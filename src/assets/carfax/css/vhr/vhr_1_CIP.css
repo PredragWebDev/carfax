@@ -1,0 +1,763 @@
+@media screen , print {
+	.floatLeft {
+		float: left;
+		margin-right: 10px;
+		margin-left: 4px
+	}
+	.floatRight {
+		float: right;
+		margin-right: 4px;
+	}
+	#tabws,#tabbbg,#tabwc {
+		margin: 0 auto;
+	}
+	#toggleButtonActivator {
+		float: left;
+		margin: 0px;
+		font-weight: 500;
+		text-align: left;
+		padding: 0 0 5px 0;
+	}
+	#toggleButtonActivator li {
+		float: left;
+		list-style-image: none;
+		list-style-position: outside;
+		list-style-type: none;
+		padding: 3px;
+	}
+	.toggleActivated,.toggleActivated a,.toggleActivated a:visited {
+		background-color: #FF9900;
+		color: #FFFFFF;
+		text-decoration: none;
+	}
+	.toggleDeactivated,.toggleDeactivated a,.toggleDeactivated a:visited {
+		color: #666666;
+		text-decoration: none;
+	}
+	.toggleDeactivated a:hover {
+		text-decoration: underline;
+	}
+	#toggleIndicator {
+		visibility: hidden;
+	}
+	#icr-updated-message {
+		color: #FF9900;
+	}
+	#contentWrapper {
+		width: 980px;
+		margin: 0px auto;
+		margin-bottom: 50px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		border-color: #EFEFEF rgb(153, 153, 153) rgb(153, 153, 153);
+		border-style: solid;
+		border-width: 1px;
+	}
+	#contentWrapper .usageLabel {
+		margin: 0px auto;
+	}
+	#upgradeBar {
+		margin: 0px auto;
+		padding: 0;
+		background: url("/img/vhr/upgradeRightBg.gif") top right no-repeat;
+		height: 40px;
+		width: 720px;
+		vertical-align: middle;
+	}
+	#upgradeBar img {
+		margin: 4px 20px 5px 5px;
+		padding-bottom: 0px;
+		float: left;
+	}
+	#upgradeBar .rightHand {
+		float: right;
+		text-align: right;
+		padding: 8px 10px 0 0;
+	}
+	.rightHand label {
+		margin-bottom: 2px;
+	}
+	#upgrade2CIP,#upgrade2CIPDisabled {
+		margin: 0;
+		padding-left: 108px;
+		width: 610px;
+	}
+	#upgrade2CIPDisabled {
+		display: none;
+	}
+	#header {
+		width: 980px;
+		background: #FFFFFF;
+		line-height: normal;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	/* TABS \*/
+	#header ul {
+		padding: 0;
+		list-style: none;
+		float: left;
+	}
+	#header li {
+		float: left;
+		background: url(/img/vhr/left.gif) no-repeat left top;
+		margin: 0;
+		padding: 0 0 0 3px;
+	}
+	#header li a {
+		float: left;
+		display: block;
+		background: url(/img/vhr/right.gif) no-repeat right top;
+		padding: 5px 15px 4px 6px;
+		color: #003366;
+		text-decoration: none;
+	}
+	/* Commented Backslash Hack hides rule from IE5-Mac \*/
+	#header li a {
+		float: none;
+	}
+	/* End IE5-Mac hack */
+	#header li a:hover {
+		color: #326198;
+		background-image: url(/img/vhr/right_on.gif);
+		text-decoration: underline;
+	}
+	#header #active {
+		background-image: url(/img/vhr/left_on.gif);
+	}
+	#header #active a {
+		background-image: url(/img/vhr/right_on.gif);
+		color: #990000;
+		padding-bottom: 5px;
+		text-decoration: none;
+	}
+	#header #active a:hover {
+		background-image: url(/img/vhr/right_on.gif);
+		color: #990000;
+		padding-bottom: 5px;
+		text-decoration: underline;
+	}
+	#header .nodata {
+		float: left;
+		display: block;
+		background: url(/img/vhr/right.gif) no-repeat right top;
+		padding: 5px 15px 4px 6px;
+		color: #666666;
+		text-decoration: none;
+	}
+	#printVisible {
+		float: right;
+		margin: 5px auto;
+		text-align: right;
+		padding: 5px;
+	}
+	#printVisible a.orange {
+		color: #FF6600;
+	}
+	.printBtn {
+		background-color: #e8e8e8;
+		padding: 5px;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border: 2px solid #d0d0d0;
+		overflow: visible;
+	}
+	.printBtn a,.printBtn a:visited {
+		text-decoration: none;
+	}
+	.printBtn a:hover {
+		text-decoration: underline;
+	}
+	.active {
+		display: block;
+		visibility: visible;
+	}
+	.inactive {
+		display: none;
+	}
+	.animatedLoadingImage {
+		display: none;
+		z-index: 250;
+		position: absolute;
+		text-align: center;
+		background: #FFFFFF;
+		width: 300px;
+		height: 150px;
+		left: 37%;
+		padding-top: 60px;
+		top: 300px;
+		border: 1px solid #C0C0C0;
+	}
+/*******************
+UPGRADE MESSAGE
+ *************/
+	#naMsg {
+		min-height: 1000px;
+		height: auto !important;
+	}
+	.upgradeMsg {
+		min-height: 210px;
+		width: 75%;
+		max-width: 603px;
+		border: 1px solid #3777BC;
+		background-color: rgba(55,119,188,0.05);
+		box-shadow: 0 1px 4px 0 rgba(0,0,0,0.15);
+		color: #3777BC;
+		font-weight: 500;
+		padding: 24px;
+		position: relative;
+		margin-left: 20px;
+		margin-top: 30px;
+	}
+	.upgradeMsg p {
+		font-size: 16px;
+		line-height: 120%;
+		margin-top: 10px;
+	}
+	.upgradeMsg ul {
+		color: #212121;
+		list-style: disc;
+		margin: 0 15px;
+		padding: 18px 14px;
+	}
+	.upgradeMsg li {
+		line-height: 180%
+	}
+	.upgradeToCipBtn {
+		height: 40px;
+		width: 270px;
+		border-radius: 4px;
+		background-color: #7dc243;
+		position: relative;
+	}
+	.upgradeToCipBtn a {
+		color: #FFFFFF;
+		text-decoration: none;
+		position: relative;
+		top: 30%;
+		left: 8%;
+	}
+	.viewSampleBtn {
+		float: right;
+		height: 40px;
+		width: 130px;
+		border: 1px solid #3777BC;
+		border-radius: 4px;
+		background-color: #FFFFFF;
+		position: relative;
+	}
+	.viewSampleLink {
+		margin-top: 8px;
+		position: absolute;
+		top:10%;
+		left: 17%;
+		text-decoration: none;
+	}
+	#naMsg .leaning-fox {
+		height: 246px;
+		position: absolute;
+		left: 98.7%;
+		top: 24px;
+	}
+	/***********************
+*	HIGHLIGHTS
+************************/
+	#highlightsWrapper{
+		display: flex;
+		flex-direction: column;
+	}
+
+	#highlights-main-content {
+		display:flex;
+		margin-left: 70px;
+	}
+
+	#leftSide {
+		width: 290px;
+		float: left;
+		margin-right: 35px;
+	}
+	#rightSide {
+		width: 250px;
+		float: right;
+		text-align: left;
+		font-weight: 500;
+	}
+
+	#ownershipHistory,#accidentIssues,#titleProbs {
+		margin-bottom: 10px;
+	}
+	.vh_note {
+		padding: 2px;
+	}
+	.vh_smallTopPadding {
+		margin-top: 6px;
+	}
+	.vh_clean {
+		width: 90px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+	}
+	.vh_clean img {
+		float: left;
+		padding-top: 3px
+	}
+	.vh_clean div {
+		text-align: left;
+		padding-left: 8px;
+	}
+	.vh_chkDesc {
+		text-align: left;
+		line-height: 1.2em;
+	}
+	.vh_bold_green {
+		color: #009900;
+	}
+	.vh_statCol {
+		border-top: 1px none #aaaaaa;
+		border-right: 1px solid #aaaaaa;
+		border-bottom: 1px solid #cccccc;
+		border-left: 1px none #aaaaaa;
+		text-align: center;
+		padding: 4px 0 4px 0;
+	}
+	.vh_gridCap {
+		border-bottom: 1px solid #cccccc;
+		text-align: left;
+	}
+	.vh_gridCapNoBottomBorder {
+		text-align: left;
+	}
+	.vh_oneOwnerCell {
+		border-bottom: 1px solid #cccccc;
+		padding: 3px;
+	}
+	.vh_vh_pad3 {
+		padding: 3px;
+	}
+	#vehicleInfo {
+		padding: 2px;
+		text-align: left;
+		line-height: 120%;
+		font-weight: bold;
+	}
+	.vh_ymm {
+		font-size: 18px;
+	}
+	#CPObadge {
+		padding-top: 1px;
+	}
+	#warrantyInfo {
+		width: 250px;
+		padding: 2px;
+		border: 1px solid #09357a;
+		text-align: left;
+	}
+	.vh_warrantyStatus {
+		padding-top: 2px;;
+		padding-bottom: 2px;
+	}
+	#dlrInfo {
+		text-align: center;
+		line-height: 120%;
+	}
+	div.vh_dlrName div#dealer-name a#dealer-name-link {
+		color: #000;
+		text-decoration: none;
+		line-height: 150%;
+	}
+	div.vh_dlrName div#dealer-name {
+		color: #000;
+		text-decoration: none;
+		line-height: 150%;
+	}
+	#dlrRating {
+		width: 248px;
+		padding: 1px;
+		border: 1px solid #09357a;
+		background-color: #eeeeee;
+		margin-top: 1px;
+		vertical-align: bottom;
+	}
+	#vh_disclaimer {
+		color: #666;
+	}
+	#vh_disclaimer p {
+		margin: 5px 7px 5px 7px;
+		line-height: 12px;
+		text-align: left;
+	}
+	#vh_disclaimer a:link,#vh_disclaimer a:hover,#vh_disclaimer a:visited,#vh_disclaimer a:hover,#vh_disclaimer :visited
+		{
+		color: #666;
+	}
+	.vh_topMarginFive {
+		margin-top: 10px;
+	}
+	.vh_learnMore {
+		font: normal 9px Tahoma, Verdana, Helvetica, sans-serif;
+	}
+	.vh_blueBorder {
+		border-left: 13px solid #336699;
+		border-right: 13px solid #336699;
+	}
+	.vh_vehicleInfoHeight {
+		height: 205px;
+	}
+	.vh_warrantyInfoHeight {
+		height: 123px;
+	}
+	.vh_dealerInfoHeight {
+		height: 200px;
+	}
+	#nonSrrFooter,#printFriendlyNonSrrFooter {
+		clear: both;
+		margin-top: 3px;
+		margin-left: 70px;
+	}
+	#nonSrrFooter p,#printFriendlyNonSrrFooter  p {
+		font: normal normal normal 11px/12px Arial, Helvetica, sans-serif;
+		color: #CCCCCC;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+	}
+	/***********************
+*	OTHER REPORTS
+************************/
+	.invisibleText {
+		position: relative;
+		display: none;
+		z-index: 2;
+	}
+	#organicUpSellBanner {
+		width: 660px;
+		border: 0px;
+		background-color: #e5ecf9;
+		text-align: left;
+		padding: 5px 5px 10px 5px;
+		margin-bottom: 15px;
+	}
+	#organicUpSellBanner p,#organicUpSellBanner strong {
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		padding-left: 10px;
+	}
+	#helpCenterLinksParagraph {
+		text-align: center;
+		display: block;
+		border-right: 1px solid #bdbdbd;
+		border-left: 1px solid #bdbdbd;
+		border-bottom: 1px solid #bdbdbd;
+		border-radius: 0 0 4px 4px;
+		padding: 16px 16px 18px 16px;
+	}
+	.bornOnTxt {
+		margin-bottom: 0px;
+		margin-top: 10px;
+		font-size: 12px;
+	}
+	.wcPrintBar {
+		text-align: right;
+		margin: 10px 0 10px 0;
+	}
+	.warrantyBottomHalfWhite {
+		border: 3px solid #98a3b1;
+		border-top: 0px none #ffffff;
+		background-color: #ffffff;
+		padding: 10px;
+		margin: 0 0 20px 0;
+		voice-family: inherit;
+		width: 644px;
+	}
+	#VinPhrase {
+		margin: 15px 0;
+	}
+	#tabwc td {
+		padding: 3px;
+	}
+	#tabbbg .outline {
+		border: #333333 thick groove;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+	#tabbbg .normal {
+		color: #333333;
+	}
+	#tabbbg .txtSmall {
+		color: #333333;
+	}
+	#tabbbg .ttl01 {
+		color: #165899;
+	}
+	#tabbbg .infoBld {
+		color: #165899;
+	}
+	#tabbbg .outlineThin {
+		border: #cccccc 1px solid;
+		padding: 3px;
+	}
+	#tabbbg .borderTop {
+		background: #fff url(/img/bbg/bkgBbgTop.gif) repeat-x bottom
+			50%;
+	}
+	#tabbbg .borderBtm {
+		background: url(/img/bbg/bkgBbgBtm.gif) repeat-x 50% top;
+	}
+	#tabbbg .borderRgt {
+		background: url(/img/bbg/bkgBbgRgt.gif) repeat-y left 50%;
+	}
+	#tabbbg .borderLft {
+		background: url(/img/bbg/bkgBbgLft.gif) repeat-y right 50%;
+	}
+	#facebox {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 200;
+		text-align: left;
+	}
+	#facebox .popup {
+		position: relative;
+	}
+	#facebox table {
+		margin: auto;
+		border-collapse: collapse;
+	}
+	#facebox .body {
+		padding: 10px;
+		background: #fff;
+		width: 700px;
+		border: 1px solid black;
+		align: center;
+	}
+	#facebox .loading,#facebox .image {
+		text-align: center;
+	}
+	#facebox img {
+		border: 0;
+	}
+	#facebox .footer {
+		border-top: 1px solid #DDDDDD;
+		padding-top: 5px;
+		margin-top: 10px;
+		text-align: right;
+	}
+	#facebox .tl,#facebox .tr,#facebox .bl,#facebox .br {
+		height: 10px;
+		width: 10px;
+		overflow: hidden;
+		padding: 0;
+	}
+	.summaryDesc {
+		background-color: #336699;
+		color: #FFFFFF;
+	}
+}
+
+@media print {
+	.previewSection {
+		display: none;
+	}
+	.varTagNoDisplay {
+		display: none;
+	}
+	#upgradeBar {
+		display: none;
+	}
+	#contentWrapper {
+		display: block;
+		border-width: 0px;
+		width: 680px;
+	}
+	#printVisible {
+		margin: 0px auto;
+		display: none;
+	}
+	#header,.printPageLink,.printAllLink {
+		display: none;
+	}
+	#contentWrapper {
+		border: 0px none #ffffff;
+	}
+	#forPersonalUsePrint {
+		display: block;
+		visibility: visible;
+		margin-left: 30px;
+		text-align: left;
+	}
+
+	#highlights-main-content {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#nonSrrFooter,#printFriendlyNonSrrFooter {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.inactive {
+		display: block;
+		visibility: visible;
+	}
+	/* Had to do printing with multiple classes to handle funkiness with internet explorer.  */
+	/* This will be tabws */
+	.printPage {
+		page-break-after: always;
+	}
+	.printThisPage_Print {
+		display: block;
+		visibility: visible;
+	}
+	.printThisPage_NoPrint {
+		display: none;
+	}
+	.animatedLoadingImage {
+		display: none;
+	}
+	/* HIGHLIGHTS */
+	#CPObadge {
+		padding-top: 5pt;
+	}
+	#printFriendlyNonSrrFooter,#printFriendlyNonSrrFooter p {
+		display: none;
+	}
+	#nonSrrFooter p {
+		font: normal normal normal 7pt/7pt Arial, Helvetica, sans-serif;
+		color: #CCCCCC;
+		margin: 0;
+		padding: 0;;
+		margin: 0;
+	}
+	.vh_dlrHR {
+		padding-bottom: 2pt;
+	}
+	.vh_smallTopPadding {
+		margin-top: 3pt;
+	}
+	.vh_warrantyStatus {
+		padding-top: 2pt;
+		padding-bottom: 2pt;
+	}
+	.vh_vehicleInfoHeight {
+		height: 170pt;
+	}
+	.vh_warrantyInfoHeight {
+		height: 90pt;
+	}
+	.vh_dealerInfoHeight {
+		height: 160pt;
+	}
+	#vehicleInfo {
+		padding: 2pt;
+		text-align: left;
+	}
+	#dlrInfo {
+		text-align: center;
+		vertical-align: middle;
+	}
+	#dlrRating {
+		width: 185pt;
+		padding: 1pt;
+		border: 1pt solid #09357a;
+		background-color: #eeeeee;
+		margin-top: 1pt;
+		vertical-align: middle;
+	}
+	#vh_disclaimer {
+		color: #666;
+	}
+	#vh_disclaimer p {
+		margin: 5pt 2pt 5pt 2pt;
+		width: 185pt;
+		line-height: 7pt;
+		text-align: center;
+		vertical-align: middle;
+	}
+	#vh_disclaimer a:link,#vh_disclaimer a:hover,#vh_disclaimer a:visited,#vh_disclaimer a:hover,#vh_disclaimer :visited
+		{
+		color: #666;
+	}
+}
+
+.vh_dlrSub{
+	word-wrap: break-word;
+	max-width: 264px;
+}
+
+.CADPrintBanner {
+	margin: 15px auto;
+	position: relative;
+}
+
+.CADPrintBanner label {
+	color: #999999;
+	display: block;
+}
+
+.CADbanner {
+	width: 100%;
+	overflow: visible;
+}
+
+
+.CADDealerInfo div {
+	color: #666666;
+	line-height: 120%;
+}
+
+.CADDealerInfo {
+	position: absolute;
+	top: 28px;
+	left: 140px;
+	display: inline;
+}
+
+.CADDealerInfo a {
+	color: #336699;
+	text-decoration: none;
+	border-bottom: 1px dotted #336699;
+	display: inline;
+	margin-top: 5px;
+}
+
+.CADDealerInfo #dealer-name-link {
+	color: #333333;
+	border-bottom: none;
+}
+
+.tooltip {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 4;
+}
+
+@media print {
+	.CADPrintBanner {
+		display: block;
+	}
+	div.CADPrintBanner.noPrint {
+		display: none;
+	}
+	#showMeHeader {
+		display: none;
+	}
+	.CADPrintBanner {
+		width: 670px;
+	}
+	#cadDefLink {
+		display: none;
+	}
+}
+
+@media screen {
+	.CADPrintBanner {
+		width: 980px;
+	}
+}

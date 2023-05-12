@@ -1,0 +1,874 @@
+@media screen , print {
+	.XDactive>.XDescCol {
+		background-image: url("/img/vhr/XDescbg.gif");
+		background-color: #FFFBE7;
+		background-repeat: repeat-y;
+	}
+	/*main structural*/
+	#topbar {
+		height: 65px;
+		width: 100%;
+		z-index: 20;
+		position: fixed;
+		background: #3777BC;
+		margin-top: -65px;
+		min-width: 720px;
+		box-shadow: 0 4px 4px 0 rgba(0,0,0,0.24);
+	}
+
+	#topbracket {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.balancing-buttons {
+		flex: 1;
+	}
+
+	.top-bar-buttons {
+		flex: 1;
+		display: flex;
+		justify-content: flex-end;
+		padding-top: 7px;
+	}
+	#bottombracket {
+		width: 100%;
+		max-width: 1280px;
+		clear: right;
+		overflow-y: scroll;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	#bottombracket::-webkit-scrollbar {
+		display: none;
+		width: 0 !important;
+	}
+
+	#cipcontent {
+		padding: 10px 0 0 0;
+		margin-top: 20px;
+		background-color: #fff;
+		text-align: left;
+	}
+
+	/* header elements */
+	.hdrlogo {
+		margin-top: 10px;
+	}
+
+	.top-bar-button {
+		height: 40px;
+		border: 1px solid #FFFFFF;
+		border-radius: 4px;
+		cursor: pointer;
+		overflow: hidden;
+		font-weight: 500;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+        padding-left: 15px;
+        padding-right: 15px;
+		margin-right: 10px;
+	}
+
+	.top-bar-button, .top-bar-button:visited {
+		color: #FFFFFF;
+		text-decoration: none;
+	}
+
+	.top-bar-button:hover {
+		background-position:0 -37px!important;
+		background-color: #EEEEEE;
+		color: #3777BC;
+	}
+
+	.top-bar-button:hover > .top-bar-button-icon {
+		fill: #3777BC;
+	}
+
+	.top-bar-button:active {
+		background-color: #FFFFFF;
+	}
+
+	.top-bar-button-icon {
+		vertical-align: middle;
+		padding-right: 9px;
+		fill: #FFFFFF;
+	}
+
+	#shareBtn {
+		min-width: 39px;
+	}
+	.printhover {
+		background-position: 0 -37px !important;
+	}
+	/* leftside Elements */
+	#navMain {
+		padding: 24px 10px 20px 10px;
+		color: #333333;
+		border-bottom: 1px solid #BDBDBD;
+	}
+	.ciptabs>a,.cipupgrade li {
+		display: block;
+		height: 40px;
+		cursor: pointer;
+		overflow: hidden !important;
+		text-decoration: none;
+	}
+	.cip-tab {
+		border-bottom: 1px solid #BDBDBD;
+		height: 29px;
+		padding: 10px 0 0 16px;
+		font-size: 16px;
+		font-weight: 500;
+		color: #3777BC;
+		background-color: #FFFFFF;
+	}
+	.cip-tab sup {
+		font-size: 7px;
+		font-weight: normal;
+	}
+	#tab_wc {
+		display: block
+	}
+    #tab_wc.fr_ca {
+        display: block
+    }
+	.tabactive div {
+		background-color: #7dc243;
+		color: #FFFFFF;
+	}
+	.tabhover div{
+		background-color: #EEEEEE;
+	}
+	#footer {
+		clear: both;
+		width: 100%;
+	}
+	.advDealerLogo {
+		position: absolute;
+		z-index: 5;
+		margin: 0px 0 0 53px;
+		float: left;
+		width: 120px;
+	}
+	.cadbadge {
+		width: 217px;
+		padding: 30px 0 0 0;
+		margin: 15px 0 0 6px;
+	}
+	.cadinfo {
+		border: 1px solid #999999;
+		padding-top: 5px;
+		background-color: #ffffff;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		box-shadow: 0 3px 4px 1px #999999;
+	}
+
+	.cadaddress .dealer-phone {
+		font-weight: 700;
+	}
+
+	.caddealerwebsite a {
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 2;
+	}
+
+	.cadcpo{
+		font-size: 12px;
+		color: #424242;
+		font-weight: 500;
+		font-style: italic;
+		padding-top: 8px;
+		text-align: center;
+		line-height: 18px;
+	}
+
+	#CADtag {
+		padding: 10px;
+		color: #666666;
+		display: none;
+	}
+	.cad {
+		padding-top: 45px;
+	}
+	.cad .cadinfo {
+		border-style: none;
+		padding-top: 45px;
+	}
+	.cad #CADtag {
+		display: block;
+	}
+	.cadlead {
+		margin: 0 0 4px 0;
+		font-size: 11px;
+		width: 100%;
+		text-align: center;
+	}
+	.cadinfo address {
+		font-style: normal;
+		margin: 5px;
+		font-size: 12px;
+		text-align: center;
+	}
+	.cadinfo #dealer-name {
+		line-height: 125%;
+		font-size: 16px;
+		font-weight: 700;
+		width: 100%;
+		text-align: center;
+	}
+
+
+	/*cipcontent elements*/
+	#loadingBox {
+		display: none;
+		z-index: 250;
+		position: absolute;
+		text-align: center;
+		background: #fff;
+		color: #333;
+		width: 150px;
+		height: 150px;
+		left: 37%;
+		padding-top: 20px;
+		top: 300px;
+		border: 1px solid #666;
+		overflow: hidden;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		-moz-box-shadow: 5px 5px 4px #333;
+		-webkit-box-shadow: 5px 5px 4px #333;
+		box-shadow: 5px 5px 4px #333;
+	}
+	.printactive {
+		background-color: #fff;
+		color: #333;
+		border: 2px solid #ff9900 !important;
+	}
+	#printModal h4 {
+		color: #333;
+	}
+	.printOption {
+		margin: 15px;
+		padding: 5px 5px 8px 5px;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		border: 1px solid #ccc;
+	}
+	ul.printlist {
+		margin-left: 20px;
+		padding-top: 7px;
+	}
+	ul.printlist li {
+		margin-bottom: 6px;
+	}
+	ul.printlist li label {
+		line-height: 145%;
+	}
+	#printError {
+		display: none;
+		text-align: center;
+		margin: 15px;
+		color: red;
+		background-color: rgb(255, 238, 238);
+		padding: 12px;
+		border: 2px solid darkred;
+		display: none;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+	}
+	#btnPrint {
+		margin-left: 20px;
+	}
+	#emailModal { display: none; }
+
+	.cadcontent {
+		padding: 3px 10px 4px 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	#tabvhr,#tabws,#tabbbg,#tabwc,#upgrade {
+		margin: 0 0 20px 0 !important;
+		text-align: left;
+	}
+	.CADPrintBanner {
+		display: none;
+		margin: 0 auto;
+		position: relative;
+	}
+	.CADPrintBanner label {
+		color: #999999;
+	}
+	.CADbanner {
+		width: 100%;
+		overflow: visible;
+	}
+	.CADbanner p {
+		color: #666666;
+		position: absolute;
+		top: 28px;
+		left: 140px;
+		line-height: 120%;
+	}
+	.CADbanner p:first-line {
+		color: #333333
+	}
+	/*upgrade elements */
+	#upgradeWrapper {
+		background: #fff url(/img/vhr/cip/upgradebg.png) no-repeat top
+			left;
+		width: 663px;
+		height: 271px;
+	}
+	#upgradeContent {
+		padding: 10px 163px 36px 10px;
+		color: #336699;
+	}
+	#upgradeContent h3 {
+		line-height: 120%;
+	}
+	#upgradeContent p {
+		line-height: 120%;
+		margin-top: 10px;
+	}
+	#upgradeContent ul {
+		line-height: 140%;
+		color: #333333;
+		list-style: disc;
+		margin: 0 15px;
+		padding: 10px;
+	}
+	#upgradeContent li {
+		line-height: 120%
+	}
+	#langToggle img {
+		cursor: pointer;
+	}
+	#ugpradeMessage {
+		background: #FFFBE7;
+		/* Old browsers */
+		background: -moz-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+			rgba(255, 251, 231, 1) 30% );
+		/* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, rgba(235,
+			231, 203, 1) ), color-stop(30%, rgba(255, 251, 231, 1) ) );
+		/* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+			rgba(255, 251, 231, 1) 30% );
+		/* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+			rgba(255, 251, 231, 1) 30% );
+		/* Opera11.10+ */
+		background: -ms-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+			rgba(255, 251, 231, 1) 30% );
+		/* IE10+ */
+		filter: progid : DXImageTransform.Microsoft.gradient (   startColorstr =
+			'#ebe7cb', endColorstr = '#fffbe7', GradientType = 0 );
+		/* IE6-9 */
+		background: linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+			rgba(255, 251, 231, 1) 30% );
+		/* W3C */
+		border: 1px solid #ccc;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		color: #4a7800;
+		line-height: 20px;
+		padding: 0 10px;
+		display: inline-block;
+		margin: 0;
+		height: 40px;
+		overflow: hidden;
+	}
+	#ugpradeMessage tr {
+		height: 40px;
+	}
+	#ugpradeMessage td {
+		text-align: center;
+		width: 450px;
+	}
+	#upgradeMessageWrapper {
+		text-align: center;
+		position: fixed;
+		left: 20px;
+		top: 3px;
+		z-index: 7;
+		width: 100%;
+	}
+}
+
+@media screen {
+	#tabvhr,#tabws,#tabbbg,#tabwc {
+		display: none;
+	}
+	#nav {
+		width: 228px;
+		height: 100%;
+		background-color: #f5f5f5;
+		border-right: 1px solid #BDBDBD;
+		border-left: 1px solid #BDBDBD;
+	}
+
+	/* fixed tabs */
+	.fixedTabs #nav {
+		position: fixed;
+		z-index: 10;
+	}
+
+	.fixedTabs #cipcontent {
+		padding-left: 253px;
+	}
+
+	/* scrolling tabs */
+	#bottombracket.scrollingTabs {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-around;
+	}
+
+	.scrollingTabs #nav {
+		top: 0;
+		flex: 0 0 228px;
+		height: auto;
+	}
+
+	.scrollingTabs #cipcontent {
+		margin-left: 20px;
+		align-self: flex-end;
+	}
+
+	#shareBtn:hover {
+		background-position:0 -37px!important;
+	}
+
+	#shareSpanner {
+		display: block;
+		z-index: 200;
+		position: fixed;
+		height: 20px;
+		width: 128px;
+	}
+
+	#shareMenu:before {
+		content:"";
+		position:absolute;
+		top:-9px; /* value = - border-top-width - border-bottom-width */
+		right:14px; /* controls horizontal position */
+		border-width: 0 8px 8px; /* vary these values to change the angle of the vertex */
+		border-style:solid;
+		border-color:#CCCCCC transparent;
+		/* reduce the damage in FF3.0 */
+		display:block;
+		width:0;
+	}
+
+	#shareMenu {
+		list-style:none;
+		display: none;
+		border: 1px solid #CCCCCC;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		box-shadow:  0px 0px 3px 3px rgba(0, 0, 0, .1);
+		-webkit-box-shadow:  0px 0px 3px 3px rgba(0, 0, 0, .1);
+		width: 126px;
+		color: #424242;
+		position: fixed;
+		z-index: 50;
+		background-color: #FFFFFF;
+	}
+
+	#shareMenu:after {
+		content:"";
+		position:absolute;
+		top:-8px; /* value = - border-top-width - border-bottom-width */
+		right:14px; /* controls horizontal position */
+		border-width: 0 8px 8px; /* vary these values to change the angle of the vertex */
+		border-style:solid;
+		border-color:#FFFFFF transparent;
+		/* reduce the damage in FF3.0 */
+		display:block;
+		width:0;
+	}
+	#shareMenu li{
+		padding: 11px 16px;
+		cursor: pointer;
+	}
+	#shareMenu li:hover{
+		background-color: #eef1f8;
+	}
+	#shareMenu li img{
+		vertical-align:-2px;
+		padding-right: 5px;
+	}
+
+	#shEmail i {
+		font-size: 16px;
+		vertical-align: -3px;
+		padding-right: 5px;
+	}
+
+	#emailConsole, #emailSent, #emailNotSent {
+		position: fixed;
+		z-index: 200;
+		left: calc(50% - 320px);
+		top: calc(50% - 280px);
+		color: #424242;
+		width: 640px;
+		height: 561px;
+		border: 1px solid #999;
+		background-color: #FFFFFF;
+		cursor: default;
+		box-shadow: 0 15px 12px 0 rgba(0, 0, 0, 0.22),
+					0 19px 38px 0 rgba(0, 0, 0, 0.3);
+	}
+
+	.consoleTitle{
+		float: none;
+		padding: 24px 24px 16px 24px;
+
+		border-bottom: 1px solid #BDBDBD;
+	}
+	.consoleTitle h6{
+		float: left;
+		font-weight: 500;
+		font-size: 18px;
+	}
+
+	.consoleContent {
+		padding: 12px 24px 24px 24px;
+	}
+
+	.consoleContent textarea, .consoleContent input[type="text"]{
+		width: 295px;
+		padding: 12px 16px;
+		margin-bottom: 20px;
+		font-family: roboto;
+		font-size: 14px;
+	}
+
+	.consoleContent textarea {
+		width: 556px;
+		margin-bottom: 0;
+	}
+
+	.consoleContent label {
+		font-weight: 500;
+		padding-bottom: 8px;
+	}
+
+	.consoleContent .shareEmailBtnHolder {
+		display: flex;
+		width: 55%;
+		height: 64px;
+		color: #fff;
+		align-items: flex-end;
+	}
+
+	.consoleContent .btn {
+		height: 38px;
+		width: 86px;
+		border-radius: 4px;
+		margin-right: 20px;
+		border: 0;
+		background: none;
+		box-shadow: none;
+		color: #fff;
+		text-align: center;
+	}
+
+	#shareEmailSendButton {
+		background-color: #7DC243;
+	}
+
+	#shareEmailSendButton:hover {
+		background-color: #9cc465;
+		cursor: pointer;
+	}
+
+	#shareEmailCancelButton {
+		background-color: #424242;
+	}
+
+	#shareEmailCancelButton:hover {
+		background-color: #555555;
+		cursor: pointer;
+	}
+
+	.consoleCancel{
+		float: right;
+	}
+
+	.consoleCancel:hover {
+		cursor: pointer;
+	}
+
+	#emailConsole label{
+		display: block;
+	}
+
+	.clear{clear:both; }
+	.charCount {
+		float: right;
+		font-style: italic;
+		padding: 3px;
+	}
+	#emailConsole fieldset{border: 0;margin: 0;padding: 0;}
+
+	.sentContent{
+		padding: 10px 24px 24px 24px;
+		clear: both;
+		text-align:left;
+		font-weight: 500;
+	}
+
+	#emailSentSuccessIcon {
+		float: left;
+		height: 20px;
+		color: #7DC243;
+		font-size: 22px;
+		padding-right: 8px;
+	}
+
+	#emailSent h6 {
+		line-height: 135%;
+	}
+
+	#emailSent .btn {
+		height: 38px;
+		width: 48px;
+		border-radius: 4px;
+		margin: 382px 0 0 24px;
+		float: left;
+		border: 0;
+		background: none;
+		box-shadow: none;
+		color: #fff;
+		text-align: center;
+		background-color: #7DC243;
+	}
+
+	#emailSent .btn:hover {
+		background-color: #9cc465;
+		cursor: pointer;
+	}
+
+	#emailNotSentWarningIcon {
+		float: left;
+		height: 20px;
+		color: #F44336;
+		font-size: 22px;
+		padding-right: 8px;
+	}
+
+	#emailNotSent h6 {
+		padding-top: 3px;
+	}
+
+	#emailNotSent .btn {
+		height: 38px;
+		width: 48px;
+		border-radius: 4px;
+		margin: 382px 0 0 24px;
+		float: left;
+		border: 0;
+		background: none;
+		box-shadow: none;
+		color: #fff;
+		text-align: center;
+		background-color: #424242;
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+    #bottombracket.scrollingTabs {
+        margin-left: calc(50% - 640px);
+    }
+
+    #bottombracket.fixedTabs {
+        margin-left: calc(50% - 635px);
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .nav-menu-mask {
+        z-index: 6;
+        color: #000;
+        opacity: 0.7;
+        display: none;
+    }
+
+	#nav {
+        height: 100%;
+        width: 372px;
+        z-index: 2;
+        background-color: #2c5f96;
+        border: none;
+    }
+
+    #navMain {
+        display: none;
+    }
+
+    .cip-tab {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        height: auto;
+        padding: 20px 0 20px 24px;
+        color: #FFFFFF;
+        background-color: #2c5f96;
+    }
+
+    .ciptabs > a {
+        height: auto;
+    }
+
+    .ciptabs > a:hover div {
+        background-color: #3777bc;
+    }
+
+    .open-cip-menu, .close-cip-menu {
+        cursor: pointer;
+        padding: 17px 17px 18px 17px;
+    }
+
+    .tabactive div {
+        background-color: rgba(0,0,0,0.1);
+    }
+
+    .close-cip-menu svg, .open-cip-menu svg {
+        height: 30px;
+        width: 30px;
+    }
+
+    .close-cip-menu {
+        background-color: #2c5f96;
+    }
+
+    /* CIP menu closed */
+    #nav, .scrollingTabs #nav {
+        display: block;
+        position: absolute;
+        top: -50000px;
+    }
+
+    .open-cip-menu {
+        display: inline-block;
+	}
+
+    .close-cip-menu {
+        display: none;
+    }
+
+    #nav > div:last-child { /* keeping this visible but off-screen ensures the RR stars will have the necessary gradient available */
+        display:block;
+        position: absolute;
+        top: -3000px;
+    }
+
+    /* CIP menu is open */
+    .cip-menu-open .nav-menu-mask {
+        z-index: 6;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 65px;
+    }
+    .cip-menu-open .open-cip-menu {
+        display: none;
+    }
+
+    .cip-menu-open .close-cip-menu {
+        display: inline-block;
+    }
+
+    .cip-menu-open #nav, .scrollingTabs .cip-menu-open #nav {
+        position: fixed;
+        top: auto;
+        left: 0;
+        z-index: 10;
+        height: 100%;
+    }
+
+    .cip-menu-open #nav, .cip-menu-open #modalCurtain {
+        display: block;
+    }
+
+    .cip-menu-open #cipPrintBtn, .cip-menu-open #shareBtn{
+        visibility: hidden;
+    }
+    /* End CIP menu styles */
+
+	.fixedTabs #cipcontent {
+		padding-left: 0px;
+	}
+
+	.scrollingTabs #cipcontent {
+		margin-left: 0;
+	}
+}
+
+@media print {
+	#carfaxcip {
+		overflow: visible;
+	}
+	#cipcontent {
+		padding: 0;
+		margin: 0;
+		overflow: visible;
+		overflow-y: visible;
+		display: block;
+	}
+	#bottombracket {
+		position: relative;
+		overflow-y: visible;
+		overflow: visible;
+		top: 0px;
+		bottom: auto;
+		height: auto;
+		background: none;
+		display: block;
+		padding: 0;
+	}
+	#langToggle {
+		display: none;
+	}
+	#carfax {
+		overflow: visible;
+	}
+	#nav,#topbracket,#topbar,#loadingBox,#printModal,.cad,#shareMenu {
+		display: none;
+	}
+	#tabvhr,#tabws,#tabbbg,#tabwc,#upgrade {
+		margin: 0;
+		overflow: visible;
+	}
+	.CADPrintBanner {
+		display: block;
+	}
+	.cipNoPrint {
+		display: none !important;
+	}
+}
+
+#bottombracket {
+	margin-top: 65px;
+}
+
+@media print {
+	#bottombracket {
+		margin-top: 0;
+	}
+}
+	

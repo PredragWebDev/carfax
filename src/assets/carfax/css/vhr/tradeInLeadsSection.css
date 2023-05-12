@@ -1,0 +1,118 @@
+.til-car-money-section {
+    display: flex;
+    position: relative; /* for til-car-logo-for-car-money */
+
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    height: 208px;
+    flex-flow: row wrap;
+    justify-content: start;
+    margin-bottom: 24px;
+}
+
+.til-car-logo-for-car-money {
+    height: 24px;
+    margin-top: 24px;
+    margin-left: 24px;
+}
+
+.til-car-money-flex-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row; /* explicit */
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+}
+
+.til-car-money-sell-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 112px;
+}
+
+.til-car-money-sell-text-container {
+    text-align: center;
+}
+
+.til-car-money-sell-first-line {
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    color: #424242;
+    line-height: 32px;
+}
+
+.til-car-money-sell-second-line {
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.til-car-money-sell-container .tradeInLeadsBtn {
+    margin-top: 8px;
+}
+
+.til-money-image {
+    margin-bottom: 6px;
+}
+
+.til-car-money-flex-container .tradeInLeadsBtn {
+    display: flex;
+    height: 40px;
+    width: 153px;
+    flex-shrink: 0;
+}
+
+.til-car-money-flex-container a.tradeInLeadsBtnTxt {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 1280px) {
+    .til-car-money-section {
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .til-car-money-section {
+        justify-content: center;
+        height: 307px;
+        margin: 16px 0px;
+    }
+
+    .til-car-logo-for-car-money {
+        margin-left: 0;
+        margin-bottom: 24px;
+    }
+
+    .til-car-money-flex-container {
+        flex-wrap: wrap;
+    }
+
+    .til-car-money-sell-container {
+        order: -1;
+        flex-basis: 100%;
+        flex-grow: 4;
+        margin-bottom: 24px;
+    }
+
+    .til-car-image {
+        order: 0;
+    }
+
+    .til-money-image {
+        order: 1;
+        margin: 0;
+    }
+}
+
+@media print {
+    .til-car-money-section {
+        display: none;
+    }
+}

@@ -1,0 +1,487 @@
+/*WARRANTY CHECK*/
+.warranty-check-container{
+    font-family: Roboto;
+    display: flex;
+    flex-direction:column;
+    max-width:912px;
+    margin: auto;
+    border: 1px solid #BDBDBD;
+    border-radius: 0 0 4px 4px;
+}
+
+.cfx-logo-container{
+    margin-left: 17px;
+    min-width:150px;
+}
+
+.warranty-check-mobile-header{
+    display:none;
+}
+
+.warranty-section-header-text{
+    display:flex;
+    align-items:center;
+    font-size: 18px;
+    color: #fff;
+}
+
+#warranty-check-form{
+    display: flex;
+    flex-direction:column;
+    max-width:98%;
+    margin:auto;
+
+
+}
+
+.wc-inner-container{
+    min-width: 95%;
+    margin: 15px ;
+    display:flex;
+}
+
+.confirmation-text{
+    padding-top:16px;
+}
+
+.wc-section-header{
+    display:flex;
+    align-items:center;
+    margin:auto;
+    width:912px;
+    max-width: 912px;
+    height:56px;
+    background-color:#3777bc;
+    font-size: 16px;
+    color:#fff;
+    border-radius: 4px 4px 0 0;
+}
+
+#VinPhrase.vin-phrase{
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.warranty-condition-area{
+    padding: 0 20px 24px;
+    /*display: flex;*/
+    flex-direction: column;
+    min-width: 0;
+}
+
+.weight-700{
+    font-weight:700;
+}
+.weight-500{
+    font-weight:500;
+}
+
+.grey-details-container{
+    display:flex;
+    height: 233px;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #F5F5F5;
+    margin-bottom:24px;
+}
+.vehicle-details-grid{
+    display:flex;
+    flex-direction:column;
+    width:55%;
+    padding:24px;
+    color:#212121;
+}
+.vehicle-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+.vehicle-data{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.fox-box{
+    display:flex;
+    width: 40%;
+    justify-content:center;
+}
+
+.recalculate-warranty-container{
+    display: flex;
+    flex-direction:column;
+    min-height: 135px;
+    padding-top: 5px;
+}
+
+.warranty-recalculator-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:120px;
+    max-width:505px;
+
+}
+
+.recalculator-label{
+    font-sze: 14px;
+    line-height: 2.0;
+    font-weight: 500;
+
+}
+
+.wc-close-window{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:48px;
+    background-color: #333333;
+    color: #fff;
+    border: 1px solid #424242;
+    border-radius:4px;
+    min-width:200px;
+    margin:auto;
+    cursor: pointer;
+
+}
+
+#warranty-check-form input[type=text]{
+    height: 45px;
+    min-width: 268px;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    padding-left:12px;
+}
+#warranty-check-form input[type=text]::placeholder {
+    color: #212121;
+    font-size: 14px;
+    text-align: right;
+}
+
+#warranty-check-form input[type=submit]{
+    position:relative;
+    top: 14px;
+    height: 48px;
+    min-width: 200px;
+    border: 1px solid #7DC243;
+    border-radius: 4px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    color:#fff;
+    background-color: #7DC243;
+    cursor: pointer;
+}
+
+.mobile-warranty-info-container{
+    display:none;
+}
+
+.warranty-info-container{
+    display:flex;
+    flex-direction:column;
+    border: 1px solid #E0E0E0;
+    border-radius:4px 4px 0 0;
+    min-width:0;
+}
+
+.warranty-info-cols-header{
+    display:flex;
+    align-items: center;
+    height:39px;
+    width:100%;
+    background-color: #3777bc;
+    font-size: 14px;
+    font-weight:500;
+    color: #fff;
+}
+
+.mobile-warranty-info-cols-header{
+    display:none;
+}
+
+.warranty-info-cols-header-cell{
+    flex: 0 1 32.5%;
+    color:#fff;
+    font-weight:500;
+    padding-left:17px;
+}
+
+.warranty-info-row{
+    display: flex;
+    align-items: center;
+    max-height: max-content;
+    min-height: 48px;
+    border-bottom: 1px solid #E0E0E0;
+    line-height: 1.6;
+}
+.warranty-info-cell{
+    flex: 0 1 32.5%;
+    padding-left:17px;
+}
+
+.notes-cell{
+    flex: 0 1 59%;
+    line-height: 1.7;
+    padding: 0 20px 0 8px;
+}
+
+.notes-row{
+    display:flex;
+    height: max-content;
+    margin: 15px 0;
+}
+
+.mobile-notes-row{
+    display:flex;
+    height: max-content;
+    margin-bottom: 10px;
+}
+
+.warranty-info-row:nth-child(odd) {
+    background:#F5F5F5;
+}
+
+.warranty-check-disclaimer{
+    display: flex;
+    margin:24px 0;
+}
+
+.disclaimer-icon{
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding-right: 10px;
+}
+
+.disclaimer-body{
+    line-height: 1.7;
+
+}
+
+@media screen and (max-width: 920px){
+
+    body{
+        padding:0;
+        margin:0;
+
+    }
+
+    #bottombracket{
+        /*margin-top: 65px;*/
+        top:0;
+    }
+
+    .global-modal-container{
+        min-width: 320px;
+        margin:auto;
+    }
+
+    #topbracket{
+        display:flex;
+        width:100%;
+        justify-content: left;
+        /*margin-bottom: 50px;*/
+    }
+
+    .balancing-buttons{
+        flex:0;
+        min-width: 33%;
+        max-width: 33%;
+
+    }
+   .warranty-check-container{
+        max-width:672px;
+        min-width: 320px;
+        /*margin-top:80px;*/
+    }
+
+    .wc-section-header{
+       width:100%;
+        min-width: 320px;
+    }
+
+
+    .inner-container{
+        max-width: 93%;
+
+    }
+    .vehicle-details-grid{
+        width:100%;
+    }
+
+    .fox-box{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+
+    .top-bar-buttons{
+        display:none;
+    }
+
+    #bottombracket{
+        margin-top: 0px;
+        top:0;
+    }
+
+    .wc-section-header{
+        justify-content:center;
+    }
+    .cfx-logo-container{
+        display:none;
+    }
+
+    .warranty-check-container{
+        margin:85px 16px 0 16px;
+    }
+
+    .warranty-check-mobile-header {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        top: 0;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.42);
+        height: 64px;
+        width: 100%;
+        z-index: 20;
+        position: fixed;
+        background: #3777BC;
+    }
+    .mobile-warranty-header-logo{
+        width:167px;
+        height:34px;
+    }
+
+    .inner-container {
+        width: 95%;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0 16px;
+    }
+
+    #topbracket{
+        justify-content: center;
+    }
+
+    .balancing-buttons{
+        display:none;
+    }
+
+    #warranty-check-form input[type=text] {
+        width:96%
+    }
+
+    .vehicle-details-grid{
+        padding: 16px;
+    }
+
+    .grey-details-container {
+        flex-direction: column;
+        margin: 0 auto 24px;
+        min-width:100%;
+        height: auto;
+    }
+
+
+    .vehicle-detail-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height:max-content;
+        padding: 10px 0;
+        width:91%;
+
+    }
+
+    .warranty-recalculator-row {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        min-width: 100%;
+        margin-bottom: 24px;
+    }
+    .recalculate-warranty-input-group{
+        display: flex;
+        flex-direction: column;
+        width:100%;
+        margin-bottom: 15px;
+    }
+
+    .warranty-recalculator-submit{
+        width: 100%
+    }
+
+    #warranty-check-form input[type=submit]{
+        min-width:100%;
+        top:0;
+    }
+
+    .warranty-info-container{
+        display: none;
+    }
+
+    .mobile-warranty-info-container{
+        display: flex;
+        flex-direction: column;
+        border: solid 1px #bdbdbd;
+        border-radius: 4px;
+    }
+
+    .mobile-warranty-info-cols-header{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        height: 48px;
+        background-color: #3777bc;
+        border-radius: 4px 4px 0 0;
+        color: #fff;
+        font-weight:500;
+    }
+
+    .warranty-info-row{
+        flex-direction: column;
+        padding: 0 10px;
+        height: max-content;
+
+    }
+
+    .mobile-warranty-info-row{
+        display:flex;
+        flex-direction: column;
+        padding: 0 10px;
+        height: max-content;
+        line-height: 1.8;
+    }
+
+    .mobile-warranty-info-row:nth-child(odd) {
+        background:#F5F5F5;
+    }
+
+    .mobile-warranty-info-cell{
+        display:flex;
+        justify-content: space-between;
+        width:100%;
+        line-height: 2.0;
+    }
+
+    .warranty-info-type{
+        text-align: left;
+        font-weight: 700;
+        width: 100%;
+        line-height: 3;
+    }
+
+    .warranty-info-category{
+        min-width: 20%;
+    }
+}

@@ -1,0 +1,15 @@
+scheduler:
+  # Run every day at 6:00 and 18:00 UTC
+  cron: "0 6,18 */1 * *"
+  # Backup operation timeout in minutes
+  timeout: 30
+
+target:
+  uri: ${MONGODB_URI}
+
+s3:
+  url: ${AWS_S3_URL}
+  bucket: ${AWS_S3_BUCKET}
+  accessKey: ${AWS_ACCESS_KEY}
+  secretKey: ${AWS_SECRET_KEY}
+  api: "S3v4"

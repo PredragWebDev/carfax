@@ -1,0 +1,1404 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@media screen{
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{ margin:0;padding:0;}
+table{border-collapse:collapse;	border-spacing:0;}
+fieldset,img{ border:0;}
+img.left{float: left;}
+img.right{float: right; padding-top:45px;}
+ol,ul{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+.cf{clear: both;}
+html{font-size:100%;height:101%;}
+body{
+  -webkit-text-size-adjust:none;
+  font-family: 'Roboto', sans-serif;
+  color: #212121;
+  font-size: 12px;
+}
+
+#topbar {
+	height: 56px;
+	width: 100%;
+	z-index: 20;
+	position: fixed;
+	background: #3777BC;
+	display: flex;
+	justify-content: center;
+	top: 0;
+}
+
+#topbar img {
+	height: 32px;
+	margin-top: 12px;
+}
+
+.red, .alertRed {
+	color: #F44336;
+}
+
+.alertBold {
+	font-weight: 500;
+	font-size: 14px;
+}
+
+img{max-width:100%;}
+h1{
+	display: block;
+	padding: 21px 5px 17px 12px;
+	color: #ffffff;
+	border-radius: 4px 4px 0 0;
+	background-color: #3777BC;
+	font-size: 16px;
+	font-weight: 500;
+}
+h1 img {
+    display: inline;
+	height: 22px;
+	vertical-align: middle;
+	margin-top: -4px;
+    margin-right: 8px;
+}
+
+.secHdr{
+	padding: 12px 7px 8px 12px;
+	color: #ffffff;
+    border-radius: 4px 4px 0 0;
+	background-color: #3777BC;
+	margin-top: 8px;
+}
+
+h1 sup {
+	font-size: 11px;
+}
+
+h2 {
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 4px;
+}
+
+h2 img {
+        height: 22px;
+        vertical-align: middle;
+        margin-top: -4px;
+        margin-right: 10px;
+}
+
+.details-section, #GlossarySection {
+    margin-bottom: 0;
+}
+
+h3{font-size: 14px;font-weight: 500;}
+table {
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+}
+
+td {
+    border-top: 1px solid #BDBDBD;
+    padding: 8px 10px 8px 12px;
+}
+
+.lbl {
+	width: 71%;
+	border-right: 1px solid #ccc;
+	min-height: 45px;
+}
+.d {
+	width: 29%;
+	text-align: center;
+}
+
+#vhr-header {
+	padding-top: 64px;
+}
+
+.adtl-history .d {
+    width: 20%;
+}
+
+@media screen and (max-width: 400px) {
+	.lbl {
+		width: 63%;
+	}
+
+	.d {
+		width: 37%;
+	}
+}
+.chiExp{border-width: 0 1px 1px 1px; border-color: #ccc; border-style: solid; background-color: #f5f5f5;padding: 5px}
+
+.icon-and-text {
+    display: flex;
+    justify-content: center;
+}
+
+.icon-and-text img {
+	width: 18px;
+	height: 23px;
+    padding: 4px 8px 0 0;
+}
+
+.icon-and-text div {
+    text-align: left;
+}
+
+.bbg {
+	padding: 12px 12px 4px 12px;
+
+}
+.bbg-alert {
+     display: flex;
+     border-bottom: 1px solid #BDBDBD;
+ }
+
+.bbg-image {
+    margin: 8px;
+}
+
+#bbgBrand {
+    max-width: none;
+}
+
+.bbg-paragraph {
+    margin: 8px 8px 8px 0;
+}
+
+.alertModule {
+    border: 1px solid #FF3B30;
+    border-radius: 4px;
+    margin: 8px 0;
+    padding: 8px;
+    display: flex;
+    background-color: rgba(255, 59, 48, 0.05);
+}
+
+.alert-icon {
+    padding: 0 8px 0 0;
+}
+
+.alert-icon img {
+    width: 40px;
+    max-width: none;
+}
+
+.bbg-alert-strong {
+    color: #F44336;
+    font-weight: 500;
+}
+
+.alertModule strong {
+    color: #cf1313;
+}
+
+table.sum tr:nth-of-type(odd) {
+    background-color: #EEEEEE;
+}
+
+#title-section {
+    background-color: #FFFFFF;
+}
+
+table.sum .lbl {
+    font-size: 14px;
+	line-height: 16px;
+}
+table.adtl-history .lbl strong {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+table.adtl-history tr:nth-child(1) td:nth-child(2),
+table.adtl-history tr:nth-child(2) td:nth-child(2),
+table.adtl-history tr:nth-child(3) td:nth-child(2),
+table.adtl-history tr:nth-child(4) td:nth-child(2),
+table.adtl-history tr:nth-child(5) td:nth-child(2) {
+	font-weight: 500;
+}
+
+table.adtl-history td:nth-child(2) strong {
+	font-weight: 500;
+}
+
+strong.guaranteed, .guaranteed {
+    color: #7DC243;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.adtlHistorySubText {
+    font-size: 12px;
+}
+
+.adtl-history .d {
+	width: 20%;
+}
+
+.adtl-history .d strong {
+	font-size: 12px;
+}
+
+.hdr {
+	background-color: #fffbe7;
+	border-bottom: 1px solid #BDBDBD;
+}
+
+.hdr tr {
+    height: 48px;
+}
+
+.hdr td:nth-child(2) {
+    padding: 8px 12px 8px 0;
+}
+
+.ico {
+    width: 13%;
+    text-align: center;
+
+}
+
+.hLbl {
+	font-size: 16px;
+}
+
+.hLbl div {
+    display: flex;
+}
+
+.hLbl strong {
+	padding-right: 8px;
+	align-self: center;
+}
+
+.nil{
+	text-align: center;
+	padding: 5px;
+    margin: 64px 0 -54px 0;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ccc;
+}
+
+.nil strong{font-size: 11px;}
+
+#vinDecode {
+	background-color: #F5F8FB;
+	padding: 17px 0 0 12px;
+    min-height: 131px;
+    position: relative;
+}
+
+#ymm {
+	font-size: 16px;
+	font-weight: 500;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+#vinDecode img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+/* detailedHistory */
+.ownerBar{
+	background-color: #D4E2F1;
+	padding: 10px 12px 0 16px;
+	color: #333;
+	font-size: 12px;
+}
+
+.owner-block > div:first-of-type {
+    background-color: #E0E0E0;
+}
+
+.owner-bar-mobile{
+	line-height: 18px;
+}
+
+.owner-bar-row {
+	display:flex;
+	flex-direction: column;
+	line-height: 18px;
+	font-size: 12px;
+}
+
+.owner-bar-row {
+	display: flex;
+	justify-content: space-between;
+    flex-direction: row;
+	padding-bottom: 10px;
+}
+
+.owner-type{
+	text-align: right;
+}
+
+.ownerDesc {
+	display: flex;
+}
+
+.owner-desc-icon img {
+	height: 22px;
+	padding: 3px 6px 0 0
+}
+
+.owner-desc-text {
+	padding-left: 4px;
+	display: block;
+	padding-left: 4px;
+}
+
+.owner-desc-text h3 {
+	font-weight: 500;
+	font-size: 14px;
+}
+
+/* Owner tab low mileage*/
+.carfoxTab {
+	padding: 6px 0 0 16px;
+	display: flex;
+	justify-content: center;
+}
+
+.carfoxTab img {
+	align-self: flex-end;
+	padding-right: 10px;
+	height: 78px;
+}
+
+.carfoxTabContent {
+	padding: 8px;
+	/*min-width needed for IE*/
+	min-width: 180px;
+	max-width: 250px;
+	line-height: 18px;
+	background-color: #FFFBE7;
+	align-self: center;
+	border: 1px solid #BDBDBD;
+	border-radius: 4px;
+}
+
+.carfoxTabContent:before {
+	content: "";
+	position: relative;
+	display: block;
+	width: 0;
+	top: 8px;
+	left: -17px;
+	border-style: solid;
+	border-width: 6px 9px 6px 0;
+	border-color: transparent #BDBDBD;
+}
+
+.carfoxTabContentText {
+	margin: -12px 0;
+}
+
+.carfoxTabContent:after {
+	content: "";
+	position: relative;
+	display: block;
+	width: 0;
+	top: -15px;
+	left: -16px;
+	border-style: solid;
+	border-width: 6px 9px 6px 0;
+	border-color: transparent #FFFBE7;
+}
+
+@media screen and (max-width: 378px) {
+	.carfoxTabContent:after {
+		top: -33px;
+	}
+}
+/* END: Owner tab low mileage*/
+
+.details-mobile-header {
+	border-top: 1px solid #ccc;
+	font-size: 12px;
+	display: flex;
+	padding-left: 12px;
+}
+
+.details-mobile-header > div:nth-child(1) {
+	width: 20%;
+	padding: 12px 0;
+}
+
+.details-mobile-header > div:nth-child(2){
+	width: 30%;
+    padding: 12px 0;
+}
+
+.details-mobile-header > div:nth-child(3){
+	width: 50%;
+    padding: 12px 0;
+}
+
+.details-mobile-row.evenrow, .details-mobile-xpert.evenrow {
+	background-color: #EEEEEE;
+}
+
+.details-mobile-row.oddrow {
+	background-color: #FFFFFF;
+}
+
+.owner-block > div:last-of-type {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 8px;
+}
+
+.details-mobile-xpert {
+	display: block;
+	font-size: 12px;
+}
+
+.details-mobile-row-record {
+	display: flex;
+	padding: 8px 2px 8px 12px;
+}
+
+.details-mobile-row-record > div:nth-child(1){
+	width: 20%;
+}
+
+.details-mobile-row-record > div:nth-child(1) > div:nth-child(2){
+	margin-top: 9px;
+	font-size: 11px;
+}
+
+.details-mobile-row-record > div:nth-child(2){
+	width: 30%;
+}
+
+.details-mobile-row-record > div:nth-child(3){
+	width: 50%;
+	padding-left: 4px;
+}
+
+.details-mobile-row-record .ratings-container svg {
+	height: 18px;
+	width: 18px;
+}
+
+.details-mobile-row-record .favorites {
+	font-size: 12px;
+}
+
+.details-mobile-row-record .favorites-cell i {
+	font-size: 18px;
+}
+
+.detail{
+	clear: both;
+}
+
+.mobile-dartad{
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	padding-bottom: 5px;
+}
+
+.details-mobile-row:first-of-type {
+    font-weight: 500;
+}
+
+.detail td{vertical-align: top;}
+.header{font-weight: bold;}
+.mileage p{margin-top: 15px;}
+.date{color: #333; background-color: #d9e2f3; padding: 2px; -webkit-border-radius: 3px;}
+.detail-icon-column img{
+	margin-top: 8px;
+	width: 24px;
+}
+.bornOnTxt{font-size: 9px;margin-bottom: 0px;margin-top: 10px;}
+
+.recallToggle {
+    margin: 8px 0 8px 0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    color: #3777BC;
+    width: auto;
+}
+
+.recallToggle a {
+    padding-left: 8px;
+}
+
+#recallLearnMore:hover, #recallLearnMore:visited {
+    color: #3777BC;
+}
+
+.recallToggle i {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.recallText-container {
+	padding: 12px;
+	display: none;
+}
+
+.owner-block > .evenrow .recallText-container {
+	background-color: #EEEEEE;
+}
+
+.recallText:after, .recallText:before {
+left: 51.5%;
+}
+
+.recallText:before {
+    border-bottom-color: #BDBDBD;
+}
+
+.recallText {
+    background: #FFFBE7;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #BDBDBD;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+	display: block;
+}
+
+.recallText strong {
+	font-weight: 500;
+}
+
+.XpertBulletList{
+	margin: 12px;
+	background-color: #ffe5b2;
+	padding: 5px;
+	position: relative;
+	border: 1px solid #ccc;
+	min-height: 60px;
+	-webkit-border-radius: 5px;
+	list-style-type:none;
+}
+.Xpert > div > img{
+    align-self: flex-end;
+	width: 86px;
+    height: auto;
+}
+.Xpert > p{
+	margin: 10px;
+	background-color: #ffe5b2;
+	padding: 5px;
+	border: 1px solid #ccc;
+	min-height: 60px;
+	-webkit-border-radius: 5px;
+	list-style-type:none;
+}
+.Xpert div{
+	display:flex;
+}
+.Xpert ul{
+	background-color: #FFFBE7;
+	border: 1px solid #BDBDBD;
+	padding: 12px;
+	line-height: 18px;
+	-webkit-border-radius: 5px;
+	min-height:	auto;
+}
+.advisorCheck{margin-top:10px;display: block;}
+.Xpert li.nothing{list-style:none;margin:0px}
+.xpertImg {
+	position: relative;
+	align-self: flex-end;
+	max-width: 81px;
+}
+
+.XpertBulletList::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	bottom: 32px;
+	left: -9px;
+	border-style: solid;
+	border-width: 6px 9px 6px 0;
+	border-color: transparent #BDBDBD;
+}
+
+.XpertBulletList::after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: 0;
+	height: 0;
+	bottom: 32px;
+	left: -8px;
+	border-style: solid;
+	border-width: 6px 9px 6px 0;
+	border-color: transparent #FFFBE7;
+}
+
+hr{
+	border-color:#CCCCCC;
+	border-left:0 none;
+	border-right:0 none;
+	border-style:solid none;
+	border-width:1px 0;
+	height:2px;
+	margin:10px auto;
+	text-align:center;
+	width:80%;
+}
+.invisibleText{display:none;}
+
+.leadIn {
+	margin: 12px;
+}
+
+.disclaimer {
+	margin: 16px;
+}
+
+#copyright {
+	margin: 16px;
+}
+
+dl {
+    padding: 16px 12px 0 12px;
+}
+dd{margin-bottom: 10px;}
+dt {
+    font-weight: 500;
+}
+
+div.fg {
+
+}
+
+div.fg a {
+	text-decoration: none;
+	text-align: center;
+	padding: 10px 0;
+	margin: 16px 12px 0 12px;
+	font-size: 14px;
+	font-weight: 500;
+	border: 1px solid #3777BC;
+	border-radius: 4px;
+	display: block;
+}
+
+dd .inset {
+	margin:10px 0;
+	text-align:left;
+}
+
+dd ul {
+	list-style: disc inside none;
+	margin-bottom: 20px;
+}
+
+dd li {
+	margin-top: 5px;
+}
+
+    /*** Point of Impact Mobile ***/
+
+	.mobile.poi {
+		padding-bottom: 4px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.mobile .poi-right-column {
+		display:flex;
+		flex-direction:column;
+		margin-right: 5px;
+		width: auto;
+	}
+
+	.poi-yellow-fill-container {
+		background-color: #FFFBE7;
+		border: 1px solid #E0E0E0;
+		border-radius: 3px;
+		margin: 8px 0 0 0;
+	}
+
+	.mobile-poi-fox {
+		position: relative;
+		left: 120px;
+	}
+
+	.mobile-poi-fox.car-fox-placement {
+		top: 177px;
+	}
+
+	.mobile-poi-fox.van-fox-placement {
+		top: 192px;
+	}
+
+	.mobile-poi-fox.suv-fox-placement {
+		top: 194px;
+	}
+
+	.mobile-poi-fox.truck-fox-placement {
+		top: 195px;
+	}
+
+
+
+	.mobile .poi-location {
+		font-weight: bold;
+		font-size: 12px;
+		margin: 16px 0 10px 0;
+	}
+
+	.poiSecondRow {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	table.detail tr:nth-of-type(even) .poi-mobile {
+		background-color: #f5f5f5;
+	}
+
+	/*** Severity Scale Mobile ***/
+	.severity-outer {
+		display: flex;
+		justify-content: center;
+	}
+
+	#severity-container {
+		display: flex;
+		flex-direction: column;
+		align-items:center;
+		padding-top: 16px;
+		margin-top: 10px;
+		width: 278px;
+		height: 84px;
+		background-color: #FFFBE7;
+		border: 1px solid #E0E0E0;
+		border-radius: 3px;
+	}
+	.scale-container{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 50px;
+		width: 95%;
+		max-width: 200px;
+	}
+
+	.severity-scale-popup-text strong {
+		font-size: 18px;
+	}
+
+	.slider-box{
+		display: flex;
+		position: relative;
+		border: 1px solid #212121;
+		height: 10px;
+		background-color: #fff;
+		width: 100%;
+	}
+	.scale-rectangle{
+		display:flex;
+		align-items:center;
+	}
+	.scale-text{
+		display:flex;
+		height:15px;
+		align-items:center;
+		padding-bottom: 9px;
+		font-size: 12px;
+		font-weight: bold;
+	}
+	#scale-indicator{
+		border: 1px solid #212121;
+		height: 18px;
+		background-color: #fff;
+		background-image: url(https://media.carfax.com/img/vhr/poi/poi-crosshatch-background.svg);
+		position: absolute;
+		top: -5px;
+	}
+	.severity-legend{
+		display: flex;
+		justify-content: space-between;
+		padding-top: 11px;
+		width: 100%;
+	}
+	.severity-type{
+		height: 15px;
+		color: #212121;
+		font-size: 10px;
+	}
+	.VeryMinorDamageSeverity{
+		width: 11%;
+		margin-left:-1px;
+	}
+	.MinorDamageSeverity{
+		width: 25%;
+		left: -1px;
+	}
+	.MinorToModerateDamageSev{
+		width: 25%;
+		left: 23%;
+	}
+	.ModerateDamageSeverity{
+		width: 25%;
+		left: 39%;
+	}
+	.ModerateToSevereDamageSev{
+		width: 25%;
+		left: 53%;
+	}
+	.SevereDamageSeverity{
+		width: 25%;
+		left: 75%;
+	}
+	.VerySevereDamageSeverity{
+		width: 11%;
+		left: 90%;
+	}
+	.pad-left{
+		padding-left:10px;
+	}
+	.severity-scale-popup {
+		display: none;
+		background: white;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 3;
+		padding: 20px 24px;
+		width: calc(100% - 48px);
+		height: 95%;
+		overflow-y: auto;
+	}
+	.severity-scale-popup ul,
+	.severity-scale-popup li{
+		font-size: 14px;
+	}
+	.severity-scale-popup-text-container .severity-scale-popup-text,
+	.severity-scale-popup-text-container .severity-scale-popup-text div,
+	.severity-scale-popup div{
+		text-align: left;
+	}
+	.severity-scale-popup-text-container {
+		display: flex;
+		justify-content: space-between;
+	}
+	.severity-scale-popup-text {
+		padding-top: 1em;
+	}
+	.severity-scale-popup ul {
+		line-height: 1.2em;
+		list-style: disc;
+		margin: 12px 16px;
+	}
+	.close-modal, .severity-scale-info-icon {
+		cursor: pointer;
+	}
+	.severity-scale-popup button{
+		background-color: #7DC243;
+		font-size: 14px;
+		height: 38px;
+		width: 100%;
+		border-radius: 4px;
+		border: 0;
+		color: #fff;
+		text-align: center;
+		margin: 2em 0 1em 0;
+	}
+
+	.details-mobile-row .ratings-verified-reviews {
+		flex: 0 1 auto;
+	}
+
+	/* Ratings Histogram */
+	.histogram-popup{
+		display: none;
+		position: fixed;
+		flex-direction: column;
+		background-color: #fff;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height:100%;
+		z-index: 99;
+	}
+
+	.histogram-popup img {
+		height: 24px;
+	}
+
+	.histogram-popup-ratings-summary{
+		text-align: center;
+		font-size: 14px;
+		font-weight: 600;
+		padding: 10px 0;
+	}
+
+	.histogram-popup-title{
+		border-bottom: none;
+		margin-bottom: 16px;
+		border-bottom: 1px solid #BDBDBD;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 68px;
+	}
+
+	.histogram-popup-title h3 {
+		font-size: 18px;
+		font-weight: 600;
+		padding: 28px 0 22px 24px;
+	}
+
+	.histogram-popup-title i {
+		padding-right: 24px;
+	}
+
+	.histogram-popup .ratings-verified-reviews{
+		font-size: 14px;
+		color: #9e9e9e;
+		font-weight: 400;
+		line-height: 24px;
+		text-decoration: none;
+		padding: 8px 8px 8px 0;
+	}
+
+	.histogram-popup-ratings-container{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.histogram-popup .ratings-container svg {
+		height: 24px;
+		width: 24px;
+	}
+
+	.histogram-popup .ratings-container {
+		justify-content: center;
+	}
+
+	.histogram-popup-chart-container{
+		width: calc(100% - 32px);
+		padding: 0 16px;
+	}
+
+	.histogram-popup-bar-container{
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 8px;
+		width: 100%;
+	}
+
+	.histogram-popup .ratings-stars-container {
+		flex-wrap: wrap;
+	}
+
+	.histogram-popup .ratings-stars-container .ratings-average-value {
+		width: 100%;
+		text-align: center;
+		font-size: 64px;
+		color: #3777BC;
+		height: 72px;
+		font-weight: 600;
+		line-height: 72px;
+	}
+
+	.histogram-progress-star-label{
+		width: 12.5%;
+		min-width: 40px;
+		font-size: 14px;
+	}
+
+	.histogram-progress-background{
+		background: #F5F5F5;
+		flex-grow: 1;
+	}
+
+	.histogram-progress-bar {
+		background: #3777BC;
+	}
+
+	.histogram-progress-percentage{
+		color: #9E9E9E;
+		font-size: 14px;
+		width: 12.5%;
+		min-width: 36px;
+		text-align: right;
+	}
+	.material-icons.md-18 { font-size: 18px; }
+	.material-icons.blue{color:#3777bc;}
+}
+.wellmaintained {
+	background: #F5F8FB;
+	position: relative;
+	min-height: 90px;
+	padding: 0;
+	border-bottom: 1px solid #BDBDBD;
+}
+
+.wellmaintained div {
+	background: #FFFFFF;
+	border: 1px solid #BDBDBD;
+	margin: 12px;
+	padding: 12px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 4px;
+	min-height:96px;
+	font-size: 14px;
+}
+
+.wellmaintained div p {
+	width: 77%;
+	line-height: 18px;
+}
+
+.wmBadge {
+	float: right;
+	position: absolute;
+	right: 24px;
+	top: 24px;
+}
+
+.myCFXActivate,.myCFXcta {
+	border-width: 0 1px 1px 1px;
+	border-color: #ccc;
+	border-style: solid;
+	background-color: #fff;
+	padding: 5px;
+	clear: both;
+}
+
+.myCFXActivate {
+	display: flex;
+}
+
+.myCFXActivate:after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
+	height: 0
+}
+
+.myCFXActivate h5 {
+	font-weight: 500;
+	color: #3777BC;
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 10px;
+}
+
+.myCFXActivate div {
+	margin: 20px 16px 13px 16px;
+}
+
+.myCFXActivate ul {
+	margin-left: 15px;
+	box-sizing: content-box;
+	float: left;
+}
+
+.myCFXActivate ul li {
+	list-style: disc;
+	margin-bottom: 7px;
+	font-size: 8px;
+}
+
+.myCFXActivate ul li p {
+	font-size: 12px;
+}
+
+.myCFXActivate p {
+	line-height: 14px;
+	position: relative;
+	left: 16px;
+	margin-right: 12px;
+}
+
+.myCFXActivate img {
+	float: left;
+	margin: 10px 0 10px 14px;
+	height: 130px;
+}
+
+.myCFXcta {
+	background: #f5f5f5;
+	padding: 16px;
+}
+
+.myCFXcta strong {
+	font-weight: 500;
+}
+
+#langToggle {
+    text-align:center;
+}
+#langToggle .toggle-to {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+#ucdaModule {
+    border: 3px solid #2E164B;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 12px;
+    background-color: #F3F3F3;
+}
+
+#ucdaModule .secHdr {
+    margin-top: 0;
+    background: #F3F3F3;
+    color: black;
+}
+
+.ucdaPurple {
+    color:#2E164B;
+}
+
+#ucdaIframe{
+    height: 300px;
+    width: 100%;
+}
+
+.ucdaText {
+    padding: 0 5px 5px 5px;
+}
+
+.leftAlign {
+    text-align:left;
+}
+
+.centered {
+    text-align:center;
+}
+
+.pad5 {
+    padding: 5px;
+}
+
+.flagged {
+    color: #CC0000;
+    font-weight: bold;
+    display: block;
+}
+
+.floatRight {
+    float:right;
+}
+
+#addVinAlertButton button{
+		margin: 0 10px 10px 10px;
+		background: #76b93f;
+		color: #fff;
+		font-weight: 700;
+		font-size: 14px;
+		zoom: 1;
+		height: 34px;
+		padding: 0 10px;
+		border: 1px solid #76b93f;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		cursor: pointer;
+		vertical-align: middle;
+}
+
+#addVinAlertWatchButton > i {
+    display: none; }
+#addVinAlertWatchButton:disabled > span {
+    display: none; }
+#addVinAlertWatchButton:disabled > i {
+    display: inline; }
+
+#addVinAlertButton p{
+		padding: 10px;
+}
+
+#addVinAlertButton div{
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.vehicleRecordSource{
+	word-break: break-word;
+}
+
+/* External Site Warning/Interstitial Modal Styles */
+
+#external-site-warning {
+    width: 100%;
+}
+
+.external-site-warning-header {
+    font-weight: 600;
+}
+
+.external-site-warning-content p {
+    font-size: 14px;
+}
+
+.external-site-warning-content > a, .external-site-warning-content > div {
+    text-align: center;
+    display: block;
+    font-size: 14px;
+}
+
+.back-to-top-link {
+	position: fixed;
+	bottom: 12px;
+	right: 12px;
+	background-color: #fff;
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.55);
+	display: none;
+}
+
+.scrolled .back-to-top-link {
+	display: block;
+}
+
+.back-to-top-link a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	text-decoration: none;
+}
+
+.airbag-deployed-modal {
+	max-width: 100%;
+	font-size: 14px;
+}
+
+.airbag-deployed-modal .airbag-deployed-content {
+	padding: 16px;
+}
+
+.airbag-deployed-modal .airbag-deployed-content > p {
+	padding-bottom: 24px;
+}
+
+.airbag-deployed-modal button {
+	width: calc(100% - 48px);
+}
+
+.mobile-header-well-maintained-fox {
+	margin-bottom: -9px;
+	height: 110px;
+}
+
+.mobile-header-standard-fox {
+	height: 106px;
+}
+
+a.header-jump-link {
+    text-decoration: none;
+    color: #212121;
+}
+
+/* name in lights info modal */
+
+.nil-modal {
+	width: 100%;
+	height: 100%;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif; /*not free somehow, maybe facelift will*/
+}
+.nil-modal .modal-main-text { padding: 56px 16px 16px 16px; }
+.nil-modal .modal-main-text .close-global-modal { padding: 16px; }
+.nil-modal p { margin-right: 0; }
+.nil-modal .close-button .close-global-modal { width: 100%; }
+.nil-modal .close-button {
+	box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.25);
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 16px;
+}
+
+
+/*Advantage Dealer NIL Top Section*/
+
+div#dealer-name-in-lights {
+	box-sizing: border-box;
+	border-radius: 4px;
+	border: 2px solid #3777BC;
+	margin: 72px auto -48px auto;
+	text-align: center;
+	position: relative;
+	padding: 16px;
+	font-family: 'Roboto', sans-serif;
+	line-height: 24px;
+}
+
+#dealer-name-in-lights #name-in-lights {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+#dealer-name-in-lights #adv-dealer-logo {
+	width: 87px;
+	height: 68px;
+}
+
+#dealer-name-in-lights .ratings-summary-wrapper {
+	display: flex;
+}
+
+#dealer-name-in-lights .ratings-verified-reviews-container {
+	padding: 8px 0 0 8px;
+	font-size: 14px;
+}
+
+#dealer-name-in-lights #dnil-info {
+	position: absolute;
+	top: 16px; right: 16px;
+}
+
+#dealer-name-in-lights #dnil-info-icon {
+	color: #3777bc;
+}
+
+#dealer-name-in-lights #report-provided-by {
+	font-weight: 500;
+}
+
+#dealer-name-in-lights #dealer-name {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#dealer-name-in-lights .dnil-cpo {
+	font-style: italic;
+	font-weight: 500;
+}
+
+#dealer-name-in-lights #dealer-inventory-link {
+	display: none;
+}
+
+#dealer-name-in-lights .ratings-stars-container strong {font-size: 16px;}
+#dealer-name-in-lights .favorites .favorites-number { font-size: 16px; }

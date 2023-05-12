@@ -1,0 +1,128 @@
+.nmvtis-upgrade {
+
+}
+
+.lien-report {
+	background: rgb(235, 231, 203); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, rgba(235,
+		231, 203, 1) ), color-stop(30%, rgba(255, 251, 231, 1) ) );
+	/* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#ebe7cb',
+		endColorstr='#fffbe7', GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* W3C */
+	border: 1px solid #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #4a7800;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	display: inline-block;
+	overflow: hidden;
+	min-width: 195px;
+	vertical-align: middle;
+	text-align: center;
+	float: left;
+	margin: 7px 0 0 78px;
+}
+
+.upsellMessage {
+	text-align: left !important;
+	line-height: 35px;
+}
+
+.upsellMessage img {
+	margin-top: 2px;
+	margin-right: 10px;
+}
+
+.upsellText {
+	padding-right: 10px;
+}
+
+.lien-report .btnGreenCheck {
+	-moz-box-shadow: inset 0px 1px 0px 0px #a4e271;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #a4e271;
+	box-shadow: inset 0px 1px 0px 0px #a4e271;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #89c403
+		), color-stop(1, #77a809) );
+	background: -moz-linear-gradient(center top, #89c403 5%, #77a809 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403',
+		endColorstr='#77a809' );
+	background-color: #89c403;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #74b807;
+	color: #ffffff;
+	padding: 4px 10px 6px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #528009;
+	line-height: 15px;
+}
+
+.lien-report .btnGreenCheck:hover  {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77a809
+		), color-stop(1, #89c403) );
+	background: -moz-linear-gradient(center top, #77a809 5%, #89c403 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809',
+		endColorstr='#89c403' );
+	background-color: #77a809;
+}
+
+.lien-report .btnGreenCheck:active {
+	position: relative;
+	top: 1px;
+}
+
+.vhronlyUpsellMessage {
+	border: 1px solid #ccc;
+	color: #4a7800;
+	height: 35px;
+	line-height: 35px;
+	padding: 0 10px;
+	display: block;
+	overflow: hidden;
+	min-width: 195px;
+	width: 195px;
+	text-align: center;
+	float: none;
+	margin: 7px auto; -
+	webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: rgb(235, 231, 203); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(2%, rgba(235,
+		231, 203, 1) ), color-stop(30%, rgba(255, 251, 231, 1) ) );
+	/* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% ); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(   startColorstr='#ebe7cb',
+		endColorstr='#fffbe7', GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, rgba(235, 231, 203, 1) 2%,
+		rgba(255, 251, 231, 1) 30% );
+}
+
+#viewLienReportBtn{
+    margin-right: 5px;
+}
+
+#vhrLienButtons {
+    display:inline-block;
+}
