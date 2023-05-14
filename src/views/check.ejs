@@ -225,7 +225,7 @@
         });
       });
 
-      const exp_date = JSON.stringify(user.subscription_data.current_period_end);
+      const exp_date = <%- JSON.stringify(user.subscription_data.current_period_end) %>;
       $(".exp_date").text(`Expiration Date: ${exp_date ? moment(exp_date).local().format('M-DD-Y') : "No subscription"}`);
 
 

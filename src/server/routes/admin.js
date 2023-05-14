@@ -228,7 +228,7 @@ router.get("/logs", isAuthenticated, isAdmin, async (req, res) => {
   const logs = await Log.find({}).sort({ createdAt: -1 });
 
   res.render("./admin/logs", {
-    logs,
+    logs:logs,
   });
 });
 

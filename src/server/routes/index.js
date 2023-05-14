@@ -317,7 +317,9 @@ router.post("/check", isAuthenticated, csrfProtection, async (req, res) => {
             status: "error",
             type: "User Fetched Report",
             data: JSON.stringify(
-              { VIN, error, report: { Carfax: Carfax || null } },
+              { VIN, error
+                // , report: { Carfax: Carfax || null } 
+              },
               null,
               2
             ),
@@ -359,7 +361,7 @@ router.post("/check", isAuthenticated, csrfProtection, async (req, res) => {
                 report: {
                   yearMakeModel,
                   id: report.id,
-                  Carfax,
+                  // Carfax,
                 },
               },
               null,
@@ -509,7 +511,9 @@ router.post("/autocheck", isAuthenticated, csrfProtection, async (req, res) => {
             status: "error",
             type: "User Fetched Report",
             data: JSON.stringify(
-              { VIN, error, report: { Carfax: Carfax || null } },
+              { VIN, error, 
+                // report: { Carfax: Carfax || null } 
+              },
               null,
               2
             ),
@@ -552,7 +556,7 @@ router.post("/autocheck", isAuthenticated, csrfProtection, async (req, res) => {
                 autoCheck: {
                   yearMakeModel,
                   id: autoCheckReport.id,
-                  Carfax,
+                  // Carfax,
                 },
               },
               null,

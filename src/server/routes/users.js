@@ -137,9 +137,6 @@ router.post(
       });
 
     const { value, error } = schema.validate(req.body);
-
-    console.log("value>>>>", value)
-    console.log("error>>>>>>>>>>>", error)
     
     if (error) {
       res.render("users/register", {
@@ -172,7 +169,7 @@ router.post(
           email,
           password,
           subscription_data: {
-            balance: 0,
+            balance: 10,
             current_period_end: null,
             active: false,
           },
