@@ -12,6 +12,9 @@ router.post("/", async (req, res) => {
 
   const { email, product_title, custom } = req.body;
 
+  console.log("email>>>>>", email)
+  console.log("custom>>>>", custom)
+  
   let PLATE,
     STATE = undefined;
 
@@ -95,7 +98,7 @@ router.post("/", async (req, res) => {
               report: {
                 ID: report.id.toUpperCase(),
                 yearMakeModel,
-                Carfax,
+                // Carfax,
               },
             },
             null,
@@ -182,7 +185,7 @@ router.post("/", async (req, res) => {
                 STATE,
                 VIN: VINFromPlate.VIN,
                 error,
-                report: { Carfax: Carfax || null },
+                // report: { Carfax: Carfax || null },
               },
               null,
               2

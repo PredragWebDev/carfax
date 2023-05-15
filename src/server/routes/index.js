@@ -99,7 +99,7 @@ router.get("/", isAuthenticated, csrfProtection, async (req, res) => {
 router.get("/autocheck", isAuthenticated, csrfProtection, async (req, res) => {
   const user = await User.findOne({ _id: req.session.user._id });
   res.render("autocheck", {
-    user,
+    user:user,
   });
 });
 

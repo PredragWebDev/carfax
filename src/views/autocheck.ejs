@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="/assets/css/styles.css" />
 
-    <title>Check</title>
+    <title>Auto Check</title>
   </head>
   <body>
     <%- include('partials/header', {page: "autocheck"}) %>
@@ -31,7 +31,7 @@
             <%- include('partials/messages') %>
 
             <p>Balance: <%= user.subscription_data.balance %> Reports</p>
-            <p class="exp_date">Expiration Date:</p>
+            <p class="exp_date">Expiration Date: </p>
 
             <form action="/autocheck" method="POST" id="VINform" name="VINform">
               <div class="input-group">
@@ -209,9 +209,6 @@
           }
         }
 
-
-
-
         $("#VINform").submit(function() {
           $(".checkbyvinbtn").prop("disabled", true);
           $(".checkbyplatebtn").prop("disabled", true)
@@ -225,7 +222,8 @@
         });
       });
 
-      const exp_date = JSON.stringify(user.subscription_data.current_period_end);
+      
+      const exp_date = <%- JSON.stringify(user.subscription_data.current_period_end) %>;
       $(".exp_date").text(`Expiration Date: ${exp_date ? moment(exp_date).local().format('M-DD-Y') : "No subscription"}`);
 
       setTimeout(function() {
