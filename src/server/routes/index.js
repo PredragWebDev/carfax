@@ -165,6 +165,7 @@ router.get("/reports", isAuthenticated, async (req, res) => {
   if (user) {
     res.render("reports", {
       reports: user.reports,
+      flag:"carfax",
     });
   } else {
     res.redirect("/users/login");
@@ -184,6 +185,7 @@ router.get("/autocheckReports", isAuthenticated, async (req, res) => {
   if (user) {
     res.render("reports", {
       reports: user.autocheckreports,
+      flag:"autoCheck",
     });
   } else {
     res.redirect("/users/login");

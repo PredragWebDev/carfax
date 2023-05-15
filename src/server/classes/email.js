@@ -3,6 +3,8 @@ const sgMail = require("@sendgrid/mail");
 
 const { SENDGRID_API_KEY, NODE_ENV } = process.env;
 
+console.log("key>>>>>>>>>>>>>>>>>>>>>>", SENDGRID_API_KEY)
+console.log("node_env>>>>>>>>>>>>>>>>>>>>>>", NODE_ENV)
 if (!SENDGRID_API_KEY) {
   throw new Error(
     "The sendgrid api key has not been set in the environment variables"
@@ -13,17 +15,23 @@ if (!SENDGRID_API_KEY) {
 sgMail.setApiKey(SENDGRID_API_KEY);
 
 const sendEmail = async (opts) => {
+
   try {
     // Subject and email html comes from templateId @ SendGrid
     const msg = {
-      from: "noreply@buycarfax.com",
+      "from": "noreply@buycarfax.com",
       ...opts,
     };
 
-    if (NODE_ENV !== "production")
-      msg.mailSettings = { sandboxMode: { enable: true } };
+    // if (NODE_ENV !== "production")
+    //   msg.mailSettings = { sandboxMode: { enable: true } };
 
-    await sgMail.send(msg);
+      console.log("message>>>>>>>>>>>", msg)
+    // await sgMail.send(msg);
+  
+    sgMail.send(msg)
+      .then(() => console.log('Email sent'))
+      .catch((error) => console.error(error));
   } catch (err) {
     Sentry.captureException(err);
   }
@@ -32,9 +40,9 @@ const sendEmail = async (opts) => {
 const sendErrorEmail = async (email) => {
   try {
     const msg = {
-      from: "noreply@buycarfax.com",
-      to: email,
-      templateId: "d-bc3188e739de4539801ab233f1e67d64",
+      "from": "noreply@buycarfax.com",
+      "to": email,
+      "templateId": "d-3c3876140e6149aca89f280e53163ec6",
     };
 
     if (NODE_ENV !== "production")

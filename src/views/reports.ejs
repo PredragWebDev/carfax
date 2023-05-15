@@ -26,9 +26,18 @@
     <div class="container">
       <div class="my-3 p-3 bg-white rounded box-shadow">
         <div id="faxOrcheck" class="mb-3 border-bottom border-dark">
-          
-          <a href="/reports" class="btn btn-primary mb-3 mr-3 text-white">CarFax</a>
-          <a href="/autocheckReports" class="btn btn-secondary mb-3 text-white">Auto Check</a>
+          <% if (flag === "carfax") { %>
+              <a href="/reports" id = "charfax" class="btn btn-primary mb-3 mr-3 text-white">CarFax Report</a>
+              <a href="/autocheckReports" id = "autochek" class="btn btn-secondary mb-3 text-white">AutoCheck Report</a> 
+          <% } %>
+          <% if (flag === "autoCheck") { %>
+              <a href="/reports" id = "charfax" class="btn btn-secondary mb-3 mr-3 text-white">CarFax Report</a>
+              <a href="/autocheckReports" id = "autochek" class="btn btn-primary mb-3 text-white">AutoCheck Report</a> 
+          <% } %>
+
+          <!-- <a href="/reports" id = "charfax" class="btn btn-primary mb-3 mr-3 text-white">CarFax Report</a>
+          <a href="/autocheckReports" id = "autochek" class="btn btn-secondary mb-3 text-white">AutoCheck Report</a> -->
+
           <!-- <button onclick="" class="btn btn-primary mb-3 mr-3">CarFax</button> -->
           <!-- <button class=" btn btn-secondary mb-3">Auto Check</button> -->
         </div>
@@ -60,7 +69,7 @@
 
   <script>
     let reports = <% if(typeof(reports) !== 'undefined' && reports.length > 0){ %> <%- JSON.stringify(reports) %>; <% } else {%>[];<% } %>
-
+    
     $(document).ready(function() {
         var table = $('#reportsTable').DataTable({
             data: reports,
@@ -110,8 +119,11 @@
                 },
             ]
         });
-    });
-    </script>
+       
+      });
+    
+    
+  </script>
 
   </body>
 </html>
