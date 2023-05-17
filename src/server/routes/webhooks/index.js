@@ -9,6 +9,8 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
   router.post("/selly", async (req, res) => {
     // TODO: Verify selly sig
     const sellySignature = req.headers["x-selly-signature"];
+
+    console.log("webhook data >>>", req.body)
   
     const { customer_email, product_title, custom_fields } = req.body.data;
   

@@ -107,12 +107,14 @@ router.get("/autocheck", isAuthenticated, csrfProtection, async (req, res) => {
 router.get("/report/:id", async (req, res) => {
   const { id } = req.params;
 
+  let title = "Carfax Report"
   // Make sure length is same as object id of mongo
   if (id.length === 24) {
     let report = await Report.findById(id);
 
     if (!report) {
       report = await AutoCheck.findById(id);
+      title = "Autocheck Report"
     }
     
     // If a report exists with this id show the html
@@ -125,19 +127,31 @@ router.get("/report/:id", async (req, res) => {
         if (user) {
           // User has wholesale pricing
           if (user.subscription_data.wholeSalePricing) {
-            renderReport(req, res, report, true);
+            res.render("report", {
+              desktopReportHtml:report.desktopReportHtml,
+              title:title,
+            });
           } else {
-            renderReport(req, res, report, false);
+            res.render("report", {
+              desktopReportHtml:report.desktopReportHtml,
+              title:title,
+            });
           }
         }
         // User maybe deleted from DB?
         else {
-          renderReport(req, res, report, false);
+          res.render("report", {
+            desktopReportHtml:report.desktopReportHtml,
+            title:title,
+          });
         }
       }
       // User not signed in or doesn't have access to wholesale pricing
       else {
-        renderReport(req, res, report, false);
+        res.render("report", {
+          desktopReportHtml:report.desktopReportHtml,
+          title:title,
+        });
       }
     } else {
       res

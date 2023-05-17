@@ -55,17 +55,7 @@ router.post(
     } else {
       const { email, password, remember_me } = value;
 
-      // if (!(await verifyRecaptchaV2(value["g-recaptcha-response"])))
-      //   return res.render("users/login", {
-      //     errors: [
-      //       {
-      //         message: "Invalid reCaptcha",
-      //       },
-      //     ],
-      //     email,
-      //   });
-
-      const user = await User.findOne({ email });
+       const user = await User.findOne({ email });
 
       if (user) {
         if (await user.comparePassword(password)) {
@@ -146,16 +136,6 @@ router.post(
     } else {
       const { email, password } = value;
 
-      // if (!(await verifyRecaptchaV2(value["g-recaptcha-response"])))
-      //   return res.render("users/login", {
-      //     errors: [
-      //       {
-      //         message: "Invalid reCaptcha",
-      //       },
-      //     ],
-      //     email,
-      //   });
-
       const user = await User.findOne({ email });
 
       if (user) {
@@ -169,7 +149,7 @@ router.post(
           email,
           password,
           subscription_data: {
-            balance: 10,
+            balance: 0,
             current_period_end: null,
             active: false,
           },

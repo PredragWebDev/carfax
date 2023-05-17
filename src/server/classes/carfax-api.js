@@ -380,8 +380,6 @@ const getCarFax = async (VIN) => {
 
   api_key = "mmFRGgxW.5A0bmbzql6szYhwJEOWbi7zSGn6ujAUD";
 
-  // vin_number = "5YJ3E1EA9NF240937"
-
   vin_number = VIN
 
   const options = {
@@ -409,16 +407,21 @@ const getCarFax = async (VIN) => {
       });
     });
 
-    console.log("vindata=>>>", vinData)
-
     if (vinData.error !== 'false') {
 
       return { error: "CARFAX returned an error for this VIN" };
     } else {
-      const Carfax = Buffer.from(vinData.html, 'base64').toString('utf-8');
-      let desktopReportHtml = Carfax
 
-      const yearMakeModel = getYearMakeModel(Carfax);
+      console.log("okay?")
+      const Carfax = Buffer.from(vinData.html, 'base64').toString('utf-8');
+
+      const $ = cheerio.load(Carfax);
+
+      $('.detailed-history-row.detailed-history-row-supplementary').first().remove();
+
+      let desktopReportHtml = $.html();
+
+      const yearMakeModel = getYearMakeModel(desktopReportHtml);
       return {
         Carfax,
         desktopReportHtml,
@@ -438,8 +441,6 @@ const getCarFax = async (VIN) => {
 const getAutoCheck = async (VIN) => {
 
   api_key = "mmFRGgxW.5A0bmbzql6szYhwJEOWbi7zSGn6ujAUD";
-
-  // vin_number = "5YJ3E1EA9NF240937"
 
   const options = {
     hostname: 'api.lot.report',

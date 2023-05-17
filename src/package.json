@@ -33,6 +33,7 @@
     "got": "^11.8.2",
     "helmet": "^4.6.0",
     "joi": "^17.4.2",
+    "js-beautify": "^1.14.7",
     "mobile-detect": "^1.4.5",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
