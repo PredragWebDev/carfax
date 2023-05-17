@@ -409,6 +409,8 @@ const getCarFax = async (VIN) => {
       });
     });
 
+    console.log("vindata=>>>", vinData)
+
     if (vinData.error !== 'false') {
 
       return { error: "CARFAX returned an error for this VIN" };
