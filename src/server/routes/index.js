@@ -250,9 +250,9 @@ router.post("/check", isAuthenticated, csrfProtection, async (req, res) => {
     });
   } else {
     // Check if current date is more than the end of users sub
-    // const subExpired = new Date() > user.subscription_data.current_period_end;
+    const subExpired = new Date() > user.subscription_data.current_period_end;
 
-    const subExpired = false;
+    // const subExpired = false;
     // Check if user has active sub and has a balance of 1 or more
     // Or user is admin so we can run the report
     if (

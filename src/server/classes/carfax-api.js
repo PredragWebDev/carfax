@@ -514,6 +514,70 @@ const getVINFromPlate = async (plate, state) => {
   }
 };
 
+const get_log = async () => {
+
+  api_key = "mmFRGgxW.5A0bmbzql6szYhwJEOWbi7zSGn6ujAUD";
+
+  // vin_number = VIN
+
+  const options = {
+    hostname: 'api.lot.report',
+    path: `/check_reports/?vin=${VIN}`,
+    headers: {
+      'Authorization': `Api-Key ${api_key}`
+    }
+  };
+
+  try {
+  
+    const log_data = await new Promise((resolve, reject) => {
+      https.get(options, (res) => {
+        let data = "";
+        res.on('data', (d) => {
+          data += d;
+        });
+        res.on("end", () => {
+          
+          resolve(JSON.parse(data));
+        });
+      }).on('error', (e) => {
+        reject(e);
+      });
+    });
+
+    console.log("logdata >>>", log_data)
+
+    // if (log_data.error !== 'false') {
+
+    //   return { error: "CARFAX returned an error for this VIN" };
+    // } else {
+
+      // console.log("okay?")
+      // const Carfax = Buffer.from(vinData.html, 'base64').toString('utf-8');
+
+      // const $ = cheerio.load(Carfax);
+
+      // $('.detailed-history-row.detailed-history-row-supplementary').first().remove();
+
+      // let desktopReportHtml = $.html();
+
+      // const yearMakeModel = getYearMakeModel(desktopReportHtml);
+      // return {
+      //   Carfax,
+      //   desktopReportHtml,
+      //   yearMakeModel,
+      // };
+    // }
+
+  } catch (err) {
+    Sentry.captureException(err);
+    console.log(err);
+    return {
+      error: "Could not retrieve your report, please try again!",
+    };
+  }
+};
+
 
 module.exports = {
   isStillLoggedIn,
@@ -526,6 +590,7 @@ module.exports = {
   getCarFax,
   getAutoCheck,
   getVINFromPlate,
+  get_log,
   //vinSuggestions,
   //vinCheck,
 };

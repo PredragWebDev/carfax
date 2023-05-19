@@ -8,6 +8,7 @@ const Report = require("../models/Report");
 const Session = require("../models/Session");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 const { patchReport } = require("../classes/carfax-api");
+const { get_log } = require("../classes/carfax-api")
 
 router.get("/users", isAuthenticated, isAdmin, async (req, res) => {
   const users = await User.find({}).sort({ createdAt: -1 });
@@ -225,6 +226,7 @@ router.get(
 );
 
 router.get("/logs", isAuthenticated, isAdmin, async (req, res) => {
+  const limits = await get_log();
   const logs = await Log.find({}).sort({ createdAt: -1 });
 
   res.render("./admin/logs", {
