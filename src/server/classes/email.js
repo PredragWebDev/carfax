@@ -3,8 +3,7 @@ const sgMail = require("@sendgrid/mail");
 
 const { SENDGRID_API_KEY, NODE_ENV } = process.env;
 
-console.log("key>>>>>>>>>>>>>>>>>>>>>>", SENDGRID_API_KEY)
-console.log("node_env>>>>>>>>>>>>>>>>>>>>>>", NODE_ENV)
+
 if (!SENDGRID_API_KEY) {
   throw new Error(
     "The sendgrid api key has not been set in the environment variables"
@@ -22,12 +21,6 @@ const sendEmail = async (opts) => {
       "from": "noreply@buycarfax.com",
       ...opts,
     };
-
-    // if (NODE_ENV !== "production")
-    //   msg.mailSettings = { sandboxMode: { enable: true } };
-
-      console.log("message>>>>>>>>>>>", msg)
-    // await sgMail.send(msg);
   
     sgMail.send(msg)
       .then(() => console.log('Email sent'))

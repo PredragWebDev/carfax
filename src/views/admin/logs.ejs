@@ -52,6 +52,17 @@
     </style>
 
     <div class="container">
+        <div class="ml-5" style="display: flex;">
+            <% if (today/limit <= 50){ %>
+                <p style="font-size: 30px;" class="mr-3">Today use rate:</p><p style="font-size: 30px; color:green"> <%= today %>/<%= limit %></p>
+            <% } %>
+            <% if (today/limit > 50 && today/limit < 90){ %>
+                <p style="font-size: 30px;" class="mr-3">Today use rate:</p><p style="font-size: 30px; color:yellow"> <%= today %>/<%= limit %></p>
+            <% } %>
+            <% if (today/limit>= 90) { %>
+                <p style="font-size: 30px;" class="mr-3">Today use rate:</p><p style="font-size: 30px; color:red"><%= today %>/<%= limit %></p>
+            <% } %>
+        </div>
         <div class="my-3 p-3 bg-white rounded box-shadow">
         <%- include('../partials/messages') %>
             <table id="logsTable" class="table table-bordered" style="width:100%">

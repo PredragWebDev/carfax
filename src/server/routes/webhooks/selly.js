@@ -10,8 +10,12 @@ router.post("/", async (req, res) => {
   // TODO: Verify selly sig
   const sellySignature = req.headers["x-selly-signature"];
 
+  
+
   const { email, product_title, custom } = req.body;
 
+  console.log("req data>>>>", req)
+  
   console.log("email>>>>>", email)
   console.log("custom>>>>", custom)
 

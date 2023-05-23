@@ -227,10 +227,13 @@ router.get(
 
 router.get("/logs", isAuthenticated, isAdmin, async (req, res) => {
   const limits = await get_log();
+
   const logs = await Log.find({}).sort({ createdAt: -1 });
 
   res.render("./admin/logs", {
     logs:logs,
+    today:limits.requests_today,
+    limit:limits.requests_limit,
   });
 });
 
