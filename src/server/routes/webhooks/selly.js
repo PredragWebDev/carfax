@@ -10,14 +10,7 @@ router.post("/", async (req, res) => {
   // TODO: Verify selly sig
   const sellySignature = req.headers["x-selly-signature"];
 
-  
-
   const { email, product_title, custom } = req.body;
-
-  console.log("req data>>>>", req)
-  
-  console.log("email>>>>>", email)
-  console.log("custom>>>>", custom)
 
   let PLATE,
     STATE = undefined;
@@ -70,8 +63,6 @@ router.post("/", async (req, res) => {
           VIN,
           yearMakeModel,
           desktopReportHtml,
-          // mobileReportHtml,
-          // carFax: Carfax,
         });
 
         // Save into DB
@@ -89,8 +80,6 @@ router.post("/", async (req, res) => {
             }
           );
         }
-
-        //console.log(`Report ID: ${report.id}`);
 
         log({
           status: "info",
@@ -135,7 +124,6 @@ router.post("/", async (req, res) => {
       STATE = custom[1];
 
       // Plate + state exists, lets get VIN for it
-      //console.log(`Received single report callback for PLATE: ${PLATE} + STATE: ${STATE}`);
 
       const VINFromPlate = await getVINFromPlate(PLATE, STATE);
 
@@ -163,9 +151,7 @@ router.post("/", async (req, res) => {
 
         // Get CARFAX report for the VIN from this order
         const {
-          // Carfax,
           desktopReportHtml,
-          // mobileReportHtml,
           yearMakeModel,
           error,
         } = await getCarFax(VINFromPlate.VIN);
@@ -189,7 +175,6 @@ router.post("/", async (req, res) => {
                 STATE,
                 VIN: VINFromPlate.VIN,
                 error,
-                // report: { Carfax: Carfax || null },
               },
               null,
               2
@@ -197,7 +182,6 @@ router.post("/", async (req, res) => {
             user: null,
           });
 
-          //console.log(error);
           await sendErrorEmail(email);
 
           res.send(error);
@@ -207,8 +191,6 @@ router.post("/", async (req, res) => {
             VIN: VINFromPlate.VIN,
             yearMakeModel,
             desktopReportHtml,
-            // mobileReportHtml,
-            // carFax: Carfax,
           });
 
           // Save into DB

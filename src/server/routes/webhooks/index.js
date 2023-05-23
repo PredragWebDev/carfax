@@ -14,16 +14,11 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
     let product_title = ""
     let VIN =""
 
-    console.log("body>>>>", req.body)
-
     if (req.body.event == 'order.completed') {
-    // if (req.body.event == 'order.created') {
       
       customer_email = req.body.data.customer_information.email
       const user = await User.findOne({ email:customer_email });
       const test = new Date() - user.updatedAt
-
-      console.log("test>>>>", test)
 
       if (user) {
         if (new Date() - user.updatedAt > 100000 ) {
@@ -64,10 +59,6 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                 break;
             }
 
-            console.log("user>>>>>", user)
-            console.log("balance>>>>", balance)
-      
-            
             await user.updateOne({
               "subscription_data.balance":
                 Number(user.subscription_data.balance) + balance,
@@ -96,11 +87,9 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
           }
           else {
             VIN = req.body.data.product_variants[0].additional_information[0].value;
-            // customer_email = req.body.data.customer_information.email
         
             // Loop through all custom fields and get the VIN field
             // Then fetch the CARFAX report for that VIN and return the URL
-            // if (custom_fields && Object.keys(custom_fields).length > 0) {
             if (VIN !== "") {
           
                 console.log(`Received single report callback for VIN: ${VIN}`);
@@ -144,8 +133,6 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                     VIN,
                     yearMakeModel,
                     desktopReportHtml,
-                    // mobileReportHtml,
-                    // carFax: Carfax,
                   });
           
                   // Save into DB
@@ -174,7 +161,6 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                         report: {
                           ID: report.id.toUpperCase(),
                           yearMakeModel,
-                          // Carfax,
                         },
                       },
                       null,
@@ -259,13 +245,6 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
           }
         }
       }
-      // else {
-      //   await sendEmail({
-      //     to: customer_email,
-      //     subject:'Purchased Balances',
-      //     text:`You are unregistered user.\n Please contact to support team.`
-      //   });
-      // }
       
     } 
 

@@ -32,9 +32,6 @@ Sentry.init({
 });
 
 const { MONGODB_URI, SESSION_SECRET, NODE_ENV } = process.env;
-  // const MONGODB_URI = "mongodb://127.0.0.1:27017/test";
-  // const SESSION_SECRET = "hello";
-  // const NODE_ENV = "";
 
 // Connect to MongoDB
 mongoose
