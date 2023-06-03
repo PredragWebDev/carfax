@@ -13,15 +13,25 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
     let customer_email = ""
     let product_title = ""
     let VIN =""
+    let flag = 0
 
+    
     if (req.body.event == 'order.completed') {
-      
+    // if (req.body.event == 'order.created') {
+
       customer_email = req.body.data.customer_information.email
       const user = await User.findOne({ email:customer_email });
-      const test = new Date() - user.updatedAt
 
       if (user) {
-        if (new Date() - user.updatedAt > 100000 ) {
+        flag = new Date() - user.updatedAt
+      }
+      else {
+        flag = 110000
+      }
+
+      // if (user) {
+        if ( flag > 100000 ) {
+
           if (req.body.data.product_variants[0].additional_information.length == 0) {
             const qty = req.body.data.product_variants[0].quantity
             const total_price = req.body.data.payment.full_price.base
@@ -59,11 +69,13 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                 break;
             }
 
-            await user.updateOne({
-              "subscription_data.balance":
-                Number(user.subscription_data.balance) + balance,
-            });
-      
+            if (user) {
+              await user.updateOne({
+                "subscription_data.balance":
+                  Number(user.subscription_data.balance) + balance,
+              });
+            }
+
             log({
               status: "info",
               type: `Selly Webhook: Purchased Balances`,
@@ -77,7 +89,7 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
               ),
               user: user ? user._id : null,
             });
-    
+
             await sendEmail({
               to: customer_email,
               subject:'Purchased Balances',
@@ -244,7 +256,7 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
             }
           }
         }
-      }
+      // }
       
     } 
 
