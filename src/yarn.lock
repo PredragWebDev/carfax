@@ -3468,6 +3468,16 @@
   "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-2.0.10.tgz"
   "version" "2.0.10"
 
+"nodemailer-brevo-transport@^2.0.1":
+  "integrity" "sha512-F2QIUz1gfbIHFxZY3sm9Hpqjaof2eNdFk1ZOOTfyDLZn5qRBLv/p8oXjsAhNA8IgRVZk2CAKA5WvZflYipbXTw=="
+  "resolved" "https://registry.npmjs.org/nodemailer-brevo-transport/-/nodemailer-brevo-transport-2.0.1.tgz"
+  "version" "2.0.1"
+
+"nodemailer@^6.9.3":
+  "integrity" "sha512-fy9v3NgTzBngrMFkDsKEj0r02U7jm6XfC3b52eoNV+GCrGj+s8pt5OqhiJdWKuw51zCTdiNR/IUD1z33LIIGpg=="
+  "resolved" "https://registry.npmjs.org/nodemailer/-/nodemailer-6.9.3.tgz"
+  "version" "6.9.3"
+
 "nodemon@^2.0.12":
   "integrity" "sha512-egCTmNZdObdBxUBw6ZNwvZ/xzk24CKRs5K6d+5zbmrMr7rOpPmfPeF6OxM3DDpaRx331CQRFEktn+wrFFfBSOA=="
   "resolved" "https://registry.npmjs.org/nodemon/-/nodemon-2.0.12.tgz"

@@ -295,7 +295,7 @@ router.post(
         // Send the password reset link to the email specified
         await sendEmail({
           to: user.email,
-          templateId: "d-89e7d03550f046c8817a9a051d701c35",
+          templateId: "d-e65e362100f849a3aaf01c30d29d46e3",
           dynamic_template_data: {
             passwordResetLink: `${APP_URL}/users/reset_password/${token}`,
           },

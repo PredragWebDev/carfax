@@ -18,8 +18,9 @@ const logSchema = new mongoose.Schema(
       required: false,
     },
     // If initiated by user or not
+    // type: mongoose.Types.ObjectId,
     user: {
-      type: mongoose.Types.ObjectId,
+      type: String,
       required: false,
     },
   },

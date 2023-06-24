@@ -3,6 +3,7 @@ const router = express.Router();
 const { getCarFax, getVINFromPlate } = require("../../classes/carfax-api");
 const Report = require("../../models/Report");
 const User = require("../../models/User");
+const Log = require("../../models/Log");
 const { log } = require("../../classes/log");
 const { sendErrorEmail, sendEmail } = require("../../classes/email");
 
@@ -15,90 +16,114 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
     let VIN =""
     let flag = 0
 
+    console.log("webhooks>>>>", req.body);
+
+    console.log("VIN>>>>", req.body.payload);
+    // if (req.body.webhookType === 'ONETIME_PAID') {
+    //   VIN = req.body.payload;
+    // }
     
-    if (req.body.event == 'order.completed') {
+    if (req.body.webhookType == 'ONETIME_PAID' && req.body.email !== "pedjolinodev@gmail.com") {
     // if (req.body.event == 'order.created') {
 
-      customer_email = req.body.data.customer_information.email
+      // customer_email = req.body.data.customer_information.email
+      customer_email = req.body.email;
       const user = await User.findOne({ email:customer_email });
 
       if (user) {
         flag = new Date() - user.updatedAt
       }
       else {
-        flag = 110000
+        const user = await Log.findOne({user:customer_email})
+        
+        if (user) {
+          console.log('user exist!')
+          flag = new Date() - user.updatedAt
+
+          console.log('flag>>>>', flag);
+        }
+        else {
+          flag = 200000
+        }
       }
 
       // if (user) {
         if ( flag > 100000 ) {
 
-          if (req.body.data.product_variants[0].additional_information.length == 0) {
-            const qty = req.body.data.product_variants[0].quantity
-            const total_price = req.body.data.payment.full_price.base
-            const product_price  = total_price/qty
+          // if (req.body.data.product_variants[0].additional_information.length == 0) {
+          //   const qty = req.body.data.product_variants[0].quantity
+          //   const total_price = req.body.data.payment.full_price.base
+          //   const product_price  = total_price/qty
     
-            let balance = 0
+          //   let balance = 0
       
-            switch (product_price) {
-              case 599:
-                balance = qty
-                break;
-              case 1575:
-                balance = qty * 3
-                break;
-              case 5050:
-                balance = qty * 10
-                break;
-              case 8700:
-                balance = qty * 25
-                break;
-              case 21700:
-                balance = qty * 75
-                break;
-              case 39000:
-                balance = qty * 100
-                break;
-              case 45000:
-                balance = qty * 150
-                break;
-              case 55000:
-                balance = qty * 200
-                break;
-              default:
-                balance = qty
-                break;
-            }
+          //   switch (product_price) {
+          //     case 599:
+          //       balance = qty
+          //       break;
+          //     case 1575:
+          //       balance = qty * 3
+          //       break;
+          //     case 5050:
+          //       balance = qty * 10
+          //       break;
+          //     case 8700:
+          //       balance = qty * 25
+          //       break;
+          //     case 21700:
+          //       balance = qty * 75
+          //       break;
+          //     case 39000:
+          //       balance = qty * 100
+          //       break;
+          //     case 45000:
+          //       balance = qty * 150
+          //       break;
+          //     case 55000:
+          //       balance = qty * 200
+          //       break;
+          //     default:
+          //       balance = qty
+          //       break;
+          //   }
 
-            if (user) {
-              await user.updateOne({
-                "subscription_data.balance":
-                  Number(user.subscription_data.balance) + balance,
-              });
-            }
+          //   if (user) {
+          //     const now = new Date();
+          //     const futureDate = new Date(now.setDate(now.getDate() + 90));
+          //     console.log('expire date', futureDate);
 
-            log({
-              status: "info",
-              type: `Selly Webhook: Purchased Balances`,
-              data: JSON.stringify(
-                {
-                  customer_email,
-                  balance,
-                },
-                null,
-                2
-              ),
-              user: user ? user._id : null,
-            });
+          //     await user.updateOne({
+          //       "subscription_data.balance":
+          //         Number(user.subscription_data.balance) + balance,
+          //       "subscription_data.current_period_end":futureDate,
+          //       "subscription_data.active":true
+          //     });
+          //   }
 
-            await sendEmail({
-              to: customer_email,
-              subject:'Purchased Balances',
-              text:`Congratulations! \nYou have successfully purchased ${balance} balances`
-            });
+          //   log({
+          //     status: "info",
+          //     type: `Selly Webhook: Purchased Balances`,
+          //     data: JSON.stringify(
+          //       {
+          //         customer_email,
+          //         balance,
+          //       },
+          //       null,
+          //       2
+          //     ),
+          //     user: user ? user._id : customer_email,
+          //   });
+
+          //   await sendEmail({
+          //     to: customer_email,
+          //     subject:'Purchased Balances',
+          //     text:`Congratulations! \nYou have successfully purchased ${balance} balances`
+          //   });
             
-          }
-          else {
-            VIN = req.body.data.product_variants[0].additional_information[0].value;
+          // }
+          if (req.body.productName === 'Instant Service') {
+            // VIN = req.body.data.product_variants[0].additional_information[0].value;
+            VIN = req.body.payload;
         
             // Loop through all custom fields and get the VIN field
             // Then fetch the CARFAX report for that VIN and return the URL
@@ -178,13 +203,14 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                       null,
                       2
                     ),
-                    user: user ? user._id : null,
+                    user: user ? user._id : customer_email,
                   });
           
                   // Send email to make sure user gets report
                   await sendEmail({
                     to: customer_email,
-                    templateId: "d-3c3876140e6149aca89f280e53163ec6",
+                    // templateId: "d-3c3876140e6149aca89f280e53163ec6",
+                    templateId: "1",
                     dynamicTemplateData: {
                       VIN:VIN,
                       reportUrl: `${

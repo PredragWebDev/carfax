@@ -103,6 +103,14 @@ router.get("/autocheck", isAuthenticated, csrfProtection, async (req, res) => {
   });
 });
 
+router.get("/buyCredits", isAuthenticated, csrfProtection, async (req, res) => {
+  const user = await User.findOne({ _id: req.session.user._id });
+  res.render("buyCredits", {
+    user:user,
+  });
+});
+
+
 // Get a report
 router.get("/report/:id", async (req, res) => {
   const { id } = req.params;
