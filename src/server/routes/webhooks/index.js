@@ -288,6 +288,9 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                 //   }
                 // }
               }
+            } else {
+              await sendErrorEmail(customer_email);
+
             }
           }
         } 
