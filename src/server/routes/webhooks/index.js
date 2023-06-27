@@ -296,17 +296,10 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                 // }
               }
             }
-            
           }
-          // }
-          //res.status(200).send('Webhook received successfully');
-          
         } 
       }
-      // else {
-      //   res.status(200).send('Webhook received successfully');
-      // }
-      
+           
       console.log("sent status 200");
       res.status(200).send('Webhook received successfully');
     
