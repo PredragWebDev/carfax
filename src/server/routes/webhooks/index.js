@@ -287,9 +287,9 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                 //     res.send("Email does not exist, please contact support!");
                 //   }
                 // }
-              }
-            } else {
-              await sendErrorEmail(customer_email);
+              } else {
+                await sendErrorEmail(customer_email);
+            } 
 
             }
           }
