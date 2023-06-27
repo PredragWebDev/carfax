@@ -26,6 +26,7 @@ const sendEmail = async (opts) => {
     const msg = {
       "from": "noreply@buycarfax.com",
       ...opts,
+      
     };
   
     transporter.sendMail(msg, (error, info) => {
@@ -49,7 +50,7 @@ const sendErrorEmail = async (email) => {
     const msg = {
       "from": "noreply@buycarfax.com",
       "to": email,
-      "templateId": "2",
+      "templateId": 2,
     };
 
     if (NODE_ENV !== "production")
