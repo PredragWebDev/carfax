@@ -303,9 +303,6 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
       console.log("sent status 200");
       res.status(200).send('Webhook received successfully');
     
-    
   });
-
-
 
 module.exports = router;
