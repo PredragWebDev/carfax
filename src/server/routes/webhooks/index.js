@@ -27,6 +27,10 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
 
     if(!webhookID) {
 
+      console.log("webhooks id>>>>", req.body.webhookId);
+      const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
+      await newWebhook.save();
+
       if (req.body.webhookType == 'ONETIME_PAID') {
       // if (req.body.event == 'order.created') {
   
@@ -125,9 +129,9 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                 text:`Congratulations! \nYou have successfully purchased ${balance} balances`
               });
 
-              console.log("webhooks ID>>>>", req.body.webhookId);
-              const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
-              await newWebhook.save();
+              // console.log("webhooks ID>>>>", req.body.webhookId);
+              // const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
+              // await newWebhook.save();
               
             }
             if (req.body.productName === 'Instant Service') {
@@ -136,7 +140,7 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
           
               // Loop through all custom fields and get the VIN field
               // Then fetch the CARFAX report for that VIN and return the URL
-              if (VIN.length === 17 ) {
+              if (!isValidVin()) {
               // if (VIN !== 'vin' && VIN !== 'VIN' && VIN !== 'test') {
                 console.log(`Received single report callback for VIN: ${VIN}`);
           
@@ -236,9 +240,7 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                     }
                   });
 
-                  console.log("webhooks id>>>>", req.body.webhookId);
-                  const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
-                  await newWebhook.save();
+                  
                   
                 }
                 
