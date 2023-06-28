@@ -105,8 +105,19 @@ router.get("/autocheck", isAuthenticated, csrfProtection, async (req, res) => {
 
 router.get("/buyCredits", isAuthenticated, csrfProtection, async (req, res) => {
   const user = await User.findOne({ _id: req.session.user._id });
+  const products = [
+    {id: 'TC-PR_AoYplym', buttonID:'buyCredits1'},
+    {id: 'TC-PR_Av64zaA', buttonID:'buyCredits2'},
+    {id: 'TC-PR_RrbPXjR', buttonID:'buyCredits3'},
+    {id: 'TC-PR_1Y0egDA', buttonID:'buyCredits4'},
+    {id: 'TC-PR_1pp8rD1', buttonID:'buyCredits5'},
+    {id: 'TC-PR_m8oGqN1', buttonID:'buyCredits6'},
+    {id: 'TC-PR_RaJKOnA', buttonID:'buyCredits7'},
+    {id: 'TC-PR_Aq8bn5R', buttonID:'buyCredits8'},
+    ]
   res.render("buyCredits", {
     user:user,
+    products:products
   });
 });
 

@@ -54,84 +54,89 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
         // if (user) {
           if ( flag > 100000 ) {
   
-            // if (req.body.data.product_variants[0].additional_information.length == 0) {
-            //   const qty = req.body.data.product_variants[0].quantity
-            //   const total_price = req.body.data.payment.full_price.base
-            //   const product_price  = total_price/qty
+            if (req.body.productName !== 'Instant Service') {
+              const product_name = req.body.productName;
+              // const qty = req.body.data.product_variants[0].quantity
+              // const total_price = req.body.data.payment.full_price.base
+              // const product_price  = total_price/qty
       
-            //   let balance = 0
+              let balance = 0
         
-            //   switch (product_price) {
-            //     case 599:
-            //       balance = qty
-            //       break;
-            //     case 1575:
-            //       balance = qty * 3
-            //       break;
-            //     case 5050:
-            //       balance = qty * 10
-            //       break;
-            //     case 8700:
-            //       balance = qty * 25
-            //       break;
-            //     case 21700:
-            //       balance = qty * 75
-            //       break;
-            //     case 39000:
-            //       balance = qty * 100
-            //       break;
-            //     case 45000:
-            //       balance = qty * 150
-            //       break;
-            //     case 55000:
-            //       balance = qty * 200
-            //       break;
-            //     default:
-            //       balance = qty
-            //       break;
-            //   }
+              switch (product_name) {
+                case '1 CREDIT':
+                  balance = 1
+                  break;
+                case '3 CREDITS':
+                  balance = 3
+                  break;
+                case '10 CREDITS':
+                  balance = 10
+                  break;
+                case '25 CREDITS':
+                  balance = 25
+                  break;
+                case '75 CREDITS':
+                  balance = 75
+                  break;
+                case '100 CREDITS':
+                  balance = 100
+                  break;
+                case '150 CREDITS':
+                  balance = 150
+                  break;
+                case '200 CREDITS':
+                  balance = 200
+                  break;
+                default:
+                  balance = 1
+                  break;
+              }
   
-            //   if (user) {
-            //     const now = new Date();
-            //     const futureDate = new Date(now.setDate(now.getDate() + 90));
-            //     console.log('expire date', futureDate);
+              if (user) {
+                const now = new Date();
+                const futureDate = new Date(now.setDate(now.getDate() + 90));
+                console.log('expire date', futureDate);
   
-            //     await user.updateOne({
-            //       "subscription_data.balance":
-            //         Number(user.subscription_data.balance) + balance,
-            //       "subscription_data.current_period_end":futureDate,
-            //       "subscription_data.active":true
-            //     });
-            //   }
+                await user.updateOne({
+                  "subscription_data.balance":
+                    Number(user.subscription_data.balance) + balance,
+                  "subscription_data.current_period_end":futureDate,
+                  "subscription_data.active":true
+                });
+              }
   
-            //   log({
-            //     status: "info",
-            //     type: `Selly Webhook: Purchased Balances`,
-            //     data: JSON.stringify(
-            //       {
-            //         customer_email,
-            //         balance,
-            //       },
-            //       null,
-            //       2
-            //     ),
-            //     user: user ? user._id : customer_email,
-            //   });
+              log({
+                status: "info",
+                type: `Selly Webhook: Purchased Balances`,
+                data: JSON.stringify(
+                  {
+                    customer_email,
+                    balance,
+                  },
+                  null,
+                  2
+                ),
+                user: user ? user._id : customer_email,
+              });
   
-            //   await sendEmail({
-            //     to: customer_email,
-            //     subject:'Purchased Balances',
-            //     text:`Congratulations! \nYou have successfully purchased ${balance} balances`
-            //   });
+              await sendEmail({
+                to: customer_email,
+                subject:'Purchased Balances',
+                text:`Congratulations! \nYou have successfully purchased ${balance} balances`
+              });
+
+              console.log("webhooks ID>>>>", req.body.webhookId);
+              const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
+              await newWebhook.save();
               
-            // }
+            }
             if (req.body.productName === 'Instant Service') {
               // VIN = req.body.data.product_variants[0].additional_information[0].value;
               VIN = req.body.payload;
           
               // Loop through all custom fields and get the VIN field
               // Then fetch the CARFAX report for that VIN and return the URL
-              if (VIN.length === 17 && !isValidVin(VIN)) {
+              if (VIN.length === 17 ) {
               // if (VIN !== 'vin' && VIN !== 'VIN' && VIN !== 'test') {
                 console.log(`Received single report callback for VIN: ${VIN}`);
           
@@ -167,9 +172,9 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
           
                   await sendErrorEmail(customer_email);
 
-                  const newWebhook = new Webhooks({webhooksID:req.body.webhookID, user:customer_email});
+                  const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
                   await newWebhook.save();
-                  res.status(200).send('Webhook received successfully');
+                  // res.status(200).send('Webhook received successfully');
           
                   res.send(error);
                 } else {
@@ -230,6 +235,8 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                       'X-Mailin-custom': 'custom_header_1:custom_value_1|custom_header_2:custom_value_2'
                     }
                   });
+
+                  console.log("webhooks id>>>>", req.body.webhookId);
                   const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
                   await newWebhook.save();
                   
@@ -305,11 +312,11 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
 
   const isValidVin = (vin) => {
     // Check that VIN contains only valid characters
-    var validChars = /^[A-HJ-NPR-Z0-9]*$/;
+    var validChars = /^[A-HJ-NPR-Z0-9]{17}$/;
     if (!validChars.test(vin)) {
       return false;
     }
-    
+
     // Check that VIN follows correct format
     var weights = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2];
     var transliteration = { 'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'P': 7, 'R': 9, 'S': 2, 'T': 3, 'U': 4, 'V': 5, 'W': 6, 'X': 7, 'Y': 8, 'Z': 9 };
