@@ -241,61 +241,7 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
                   await newWebhook.save();
                   
                 }
-                // User ordered reports or unlimited instead of a single VIN
-                // else {
-                //   const user = await User.findOne({ email:customer_email });
-              
-                //   if (user) {
-                //     let date = new Date();
-                //     date.setDate(date.getDate() + 30);
-              
-                //     const productTitle = String(product_title).toLowerCase();
-                //     let balance = 0;
-              
-                //     // Unlimited reports so lets add hella
-                //     if (productTitle.includes("Unlimited".toLowerCase())) {
-                //       balance = 99999;
-                //       //console.log(`Received callback for Unlimited Reports for user ${email}`);
-                //     }
-                //     // Parse the amount of reports from the title
-                //     else {
-                //       balance = Number(productTitle.split(" Report".toLowerCase())[0]);
-                //       //console.log(`Received callback for ${balance} Reports for user ${email}`);
-                //     }
-              
-                //     await user.updateOne({
-                //       subscription_data: {
-                //         balance: Number(user.subscription_data.balance) + balance,
-                //         current_period_end: date,
-                //         active: true,
-                //       },
-                //     });
-              
-                //     log({
-                //       status: "info",
-                //       type: `Selly Webhook: Purchased ${
-                //         balance === 99999 ? "Unlimited" : balance
-                //       } Reports`,
-                //       data: JSON.stringify({ customer_email }, null, 2),
-                //       user: user._id,
-                //     });
-              
-                //     // Success email
-                //     sendEmail({
-                //       "to": customer_email,
-                //       "templateId": "d-3c3876140e6149aca89f280e53163ec6",
-                //     });
-                //     res.send("Successfully upgraded your account!");
-                //   }
-                //   // Retard didn't make an account like supposed to
-                //   else {
-                //     sendEmail({
-                //       "to": customer_email,
-                //       "templateId": "d-3c3876140e6149aca89f280e53163ec6",
-                //     });
-                //     res.send("Email does not exist, please contact support!");
-                //   }
-                // }
+                
               } else {
                 await sendErrorEmail(customer_email);
             } 
