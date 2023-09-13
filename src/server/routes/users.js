@@ -5,7 +5,7 @@ const moment = require("moment");
 const { v4: uuidv4 } = require("uuid");
 const User = require("../models/User");
 const PasswordReset = require("../models/PasswordReset");
-const { sendEmail } = require("../classes/email");
+const { sendEmail, sendErrorEmail } = require("../classes/email");
 const csrfProtection = require("../middleware/csrf");
 const { isAuthenticated, forwardAuthenticated } = require("../middleware/auth");
 const { verifyRecaptchaV2 } = require("../classes/recaptcha");
@@ -292,11 +292,13 @@ router.post(
         // Save the password reset document
         await passwordReset.save();
 
+        console.log('user email address>>>', user.email);
         // Send the password reset link to the email specified
         await sendEmail({
           to: user.email,
-          templateId: "d-e65e362100f849a3aaf01c30d29d46e3",
-          dynamic_template_data: {
+          templateId: 3,
+          subject: "Reset Password",
+          params: {
             passwordResetLink: `${APP_URL}/users/reset_password/${token}`,
           },
         });

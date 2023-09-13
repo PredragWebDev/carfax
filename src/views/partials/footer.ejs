@@ -1,6 +1,6 @@
 <footer class="pt-4 my-md-5 pt-md-1 border-top">
-  <div class="footer-copyright text-muted text-center py-3">
-    <p>© 2021 BuyCARFAX</p>
+  <div class="footer-copyright text-muted text-center py-3" style="display: flex; justify-content: center;">
+    <p style="padding-right: 5px;">© </p><p id="year" style="padding-right: 5px;"></p> <p>CheapCARFAX</p>
   </div>
 </footer>
 
@@ -9,6 +9,7 @@
   integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
   crossorigin="anonymous"
 ></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
@@ -23,6 +24,14 @@
 ></script>
 
 <script>
+  $(document).ready(function(){
+    const currentDate = new Date();
+    const curYear = currentDate.getFullYear();
+    const year = document.getElementById('year');
+    year.textContent = curYear;
+  });
+  
+
   if ($(".alert").length) {
     window.setTimeout(function () {
       $(".alert")

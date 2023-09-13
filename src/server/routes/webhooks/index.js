@@ -20,13 +20,15 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
     // if (req.body.webhookType === 'ONETIME_PAID') {
     //   VIN = req.body.payload;
     // }
-
+    
+    console.log("sent status 200");
+    res.status(200).send('Webhook received successfully');
+    
     console.log("webhooks>>>>>", req.body);
-
+    
     const webhookID = await Webhooks.findOne({webhooksID:req.body.webhookId})
-
+    
     if(!webhookID) {
-
       console.log("webhooks id>>>>", req.body.webhookId);
       const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
       await newWebhook.save();
@@ -38,223 +40,199 @@ const { sendErrorEmail, sendEmail } = require("../../classes/email");
         customer_email = req.body.email;
         const user = await User.findOne({ email:customer_email });
   
-        if (user) {
-          flag = new Date() - user.updatedAt
-        }
-        else {
-          const user = await Log.findOne({user:customer_email})
-          
+        if (req.body.productName !== 'Instant Service') {
+          const product_name = req.body.productName;
+          // const qty = req.body.data.product_variants[0].quantity
+          // const total_price = req.body.data.payment.full_price.base
+          // const product_price  = total_price/qty
+  
+          let balance = 0
+    
+          switch (product_name) {
+            case '1 CREDIT':
+              balance = 1
+              break;
+            case '3 CREDITS':
+              balance = 3
+              break;
+            case '10 CREDITS':
+              balance = 10
+              break;
+            case '25 CREDITS':
+              balance = 25
+              break;
+            case '75 CREDITS':
+              balance = 75
+              break;
+            case '100 CREDITS':
+              balance = 100
+              break;
+            case '150 CREDITS':
+              balance = 150
+              break;
+            case '200 CREDITS':
+              balance = 200
+              break;
+            default:
+              balance = 1
+              break;
+          }
+
           if (user) {
-            console.log('user exist!')
-            flag = new Date() - user.updatedAt
-  
-            console.log('flag>>>>', flag);
+            const now = new Date();
+            const futureDate = new Date(now.setDate(now.getDate() + 90));
+            console.log('expire date', futureDate);
+
+            await user.updateOne({
+              "subscription_data.balance":
+                Number(user.subscription_data.balance) + balance,
+              "subscription_data.current_period_end":futureDate,
+              "subscription_data.active":true
+            });
           }
-          else {
-            flag = 200000
-          }
+
+          log({
+            status: "info",
+            type: `Selly Webhook: Purchased Balances`,
+            data: JSON.stringify(
+              {
+                customer_email,
+                balance,
+              },
+              null,
+              2
+            ),
+            user: user ? user._id : customer_email,
+          });
+
+          await sendEmail({
+            to: customer_email,
+            subject:'Purchased Balances',
+            text:`Congratulations! \nYou have successfully purchased ${balance} balances`
+          });
+
+          // console.log("webhooks ID>>>>", req.body.webhookId);
+          // const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
+          // await newWebhook.save();
+          
         }
-  
-        // if (user) {
-          if ( flag > 100000 ) {
-  
-            if (req.body.productName !== 'Instant Service') {
-              const product_name = req.body.productName;
-              // const qty = req.body.data.product_variants[0].quantity
-              // const total_price = req.body.data.payment.full_price.base
-              // const product_price  = total_price/qty
+        if (req.body.productName === 'Instant Service') {
+          // VIN = req.body.data.product_variants[0].additional_information[0].value;
+          VIN = req.body.payload;
       
-              let balance = 0
-        
-              switch (product_name) {
-                case '1 CREDIT':
-                  balance = 1
-                  break;
-                case '3 CREDITS':
-                  balance = 3
-                  break;
-                case '10 CREDITS':
-                  balance = 10
-                  break;
-                case '25 CREDITS':
-                  balance = 25
-                  break;
-                case '75 CREDITS':
-                  balance = 75
-                  break;
-                case '100 CREDITS':
-                  balance = 100
-                  break;
-                case '150 CREDITS':
-                  balance = 150
-                  break;
-                case '200 CREDITS':
-                  balance = 200
-                  break;
-                default:
-                  balance = 1
-                  break;
-              }
-  
-              if (user) {
-                const now = new Date();
-                const futureDate = new Date(now.setDate(now.getDate() + 90));
-                console.log('expire date', futureDate);
-  
+          // Loop through all custom fields and get the VIN field
+          // Then fetch the CARFAX report for that VIN and return the URL
+          if (!isValidVin()) {
+          // if (VIN !== 'vin' && VIN !== 'VIN' && VIN !== 'test') {
+            console.log(`Received single report callback for VIN: ${VIN}`);
+      
+            // Get CARFAX report for the VIN from this order
+            const {
+              Carfax,
+              desktopReportHtml,
+              yearMakeModel,
+              error,
+            } = await getCarFax(VIN);
+      
+            if (error) {
+              // If user has an account with the purchasing email then add a credit
+    
+              const user = await User.findOne({ email:customer_email });
+      
+              if (user)
                 await user.updateOne({
                   "subscription_data.balance":
-                    Number(user.subscription_data.balance) + balance,
-                  "subscription_data.current_period_end":futureDate,
-                  "subscription_data.active":true
+                    Number(user.subscription_data.balance) + 1,
                 });
+      
+              log({
+                status: "error",
+                type: "Selly Webhook: Purchased Single Report",
+                data: JSON.stringify(
+                  { VIN, error, report: { Carfax: Carfax || null } },
+                  null,
+                  2
+                ),
+                user: null,
+              });
+      
+              await sendErrorEmail(customer_email);
+
+              // res.status(200).send('Webhook received successfully');
+      
+              res.send(error);
+            } else {
+              // Create the report
+              const report = await new Report({
+                VIN,
+                yearMakeModel,
+                desktopReportHtml,
+              });
+      
+              // Save into DB
+              await report.save();
+      
+              // Check if the user already has an account
+              const user = await User.findOne({ email:customer_email });
+      
+              // If the user exists add the report to the users dashboard
+              if (user) {
+                await User.findOneAndUpdate(
+                  { _id: user._id },
+                  {
+                    $addToSet: { reports: report._id },
+                  }
+                );
               }
-  
+      
               log({
                 status: "info",
-                type: `Selly Webhook: Purchased Balances`,
+                type: `Selly Webhook: Purchased Single Report`,
                 data: JSON.stringify(
                   {
                     customer_email,
-                    balance,
+                    VIN,
+                    report: {
+                      ID: report.id.toUpperCase(),
+                      yearMakeModel,
+                    },
                   },
                   null,
                   2
                 ),
                 user: user ? user._id : customer_email,
               });
-  
+      
+              // Send email to make sure user gets report
               await sendEmail({
                 to: customer_email,
-                subject:'Purchased Balances',
-                text:`Congratulations! \nYou have successfully purchased ${balance} balances`
+                // templateId: "d-3c3876140e6149aca89f280e53163ec6",
+                templateId: 1,
+                subject:"Your order has been received",
+                params: {
+                  VIN:VIN,
+                  reportUrl: `${
+                    process.env.APP_URL
+                  }/report/${report.id.toUpperCase()}`,
+                },
+                headers: {
+                  'X-Mailin-custom': 'custom_header_1:custom_value_1|custom_header_2:custom_value_2'
+                }
               });
 
-              // console.log("webhooks ID>>>>", req.body.webhookId);
-              // const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
-              // await newWebhook.save();
+              
               
             }
-            if (req.body.productName === 'Instant Service') {
-              // VIN = req.body.data.product_variants[0].additional_information[0].value;
-              VIN = req.body.payload;
-          
-              // Loop through all custom fields and get the VIN field
-              // Then fetch the CARFAX report for that VIN and return the URL
-              if (!isValidVin()) {
-              // if (VIN !== 'vin' && VIN !== 'VIN' && VIN !== 'test') {
-                console.log(`Received single report callback for VIN: ${VIN}`);
-          
-                // Get CARFAX report for the VIN from this order
-                const {
-                  Carfax,
-                  desktopReportHtml,
-                  yearMakeModel,
-                  error,
-                } = await getCarFax(VIN);
-          
-                if (error) {
-                  // If user has an account with the purchasing email then add a credit
-        
-                  const user = await User.findOne({ email:customer_email });
-          
-                  if (user)
-                    await user.updateOne({
-                      "subscription_data.balance":
-                        Number(user.subscription_data.balance) + 1,
-                    });
-          
-                  log({
-                    status: "error",
-                    type: "Selly Webhook: Purchased Single Report",
-                    data: JSON.stringify(
-                      { VIN, error, report: { Carfax: Carfax || null } },
-                      null,
-                      2
-                    ),
-                    user: null,
-                  });
-          
-                  await sendErrorEmail(customer_email);
+            
+          } else {
+            await sendErrorEmail(customer_email);
+        } 
 
-                  const newWebhook = new Webhooks({webhooksID:req.body.webhookId, user:customer_email});
-                  await newWebhook.save();
-                  // res.status(200).send('Webhook received successfully');
-          
-                  res.send(error);
-                } else {
-                  // Create the report
-                  const report = await new Report({
-                    VIN,
-                    yearMakeModel,
-                    desktopReportHtml,
-                  });
-          
-                  // Save into DB
-                  await report.save();
-          
-                  // Check if the user already has an account
-                  const user = await User.findOne({ email:customer_email });
-          
-                  // If the user exists add the report to the users dashboard
-                  if (user) {
-                    await User.findOneAndUpdate(
-                      { _id: user._id },
-                      {
-                        $addToSet: { reports: report._id },
-                      }
-                    );
-                  }
-          
-                  log({
-                    status: "info",
-                    type: `Selly Webhook: Purchased Single Report`,
-                    data: JSON.stringify(
-                      {
-                        customer_email,
-                        VIN,
-                        report: {
-                          ID: report.id.toUpperCase(),
-                          yearMakeModel,
-                        },
-                      },
-                      null,
-                      2
-                    ),
-                    user: user ? user._id : customer_email,
-                  });
-          
-                  // Send email to make sure user gets report
-                  await sendEmail({
-                    to: customer_email,
-                    // templateId: "d-3c3876140e6149aca89f280e53163ec6",
-                    templateId: 1,
-                    subject:"Your order has been received",
-                    params: {
-                      VIN:VIN,
-                      reportUrl: `${
-                        process.env.APP_URL
-                      }/report/${report.id.toUpperCase()}`,
-                    },
-                    headers: {
-                      'X-Mailin-custom': 'custom_header_1:custom_value_1|custom_header_2:custom_value_2'
-                    }
-                  });
-
-                  
-                  
-                }
-                
-              } else {
-                await sendErrorEmail(customer_email);
-            } 
-
-            }
-          }
+        }
         } 
       }
            
-      console.log("sent status 200");
-      res.status(200).send('Webhook received successfully');
+
     
   });
 

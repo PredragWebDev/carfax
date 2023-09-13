@@ -24,7 +24,7 @@ const sendEmail = async (opts) => {
   try {
     // Subject and email html comes from templateId @ SendGrid
     const msg = {
-      "from": "noreply@buycarfax.com",
+      "from": "noreply@cheapcarfax.net",
       ...opts,
       
     };
@@ -48,7 +48,7 @@ const sendEmail = async (opts) => {
 const sendErrorEmail = async (email) => {
   try {
     const msg = {
-      "from": "noreply@buycarfax.com",
+      "from": "noreply@cheapcarfax.com",
       "to": email,
       "templateId": 2,
     };
